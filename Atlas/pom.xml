@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.hwaipy.labatlas</groupId>
-    <artifactId>LabAtlas</artifactId>
+    <groupId>com.labatlas</groupId>
+    <artifactId>Atlas</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <dependencies>
@@ -10,16 +10,33 @@
             <groupId>org.apache.mina</groupId>
             <artifactId>mina-core</artifactId>
             <version>3.0.0-M2</version>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.mina</groupId>
+                    <artifactId>mina-codec</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.apache.mina</groupId>
             <artifactId>mina-examples</artifactId>
             <version>3.0.0-M2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <version>1.7.10</version>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.mina</groupId>
+                    <artifactId>mina-codec</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.mina</groupId>
+                    <artifactId>mina-http</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.mina</groupId>
+                    <artifactId>mina-coap</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <properties>

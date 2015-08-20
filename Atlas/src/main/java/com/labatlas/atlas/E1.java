@@ -1,4 +1,4 @@
-package com.hwaipy.labatlas.examples;
+package com.labatlas.atlas;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
