@@ -20,7 +20,7 @@ public class E1 {
 
   public static void main(final String[] args) {
     LOG.info("starting echo server");
-    final NioTcpServer acceptor = new NioTcpServer();
+      final NioTcpServer acceptor = new NioTcpServer();
     // create the filter chain for this service
     acceptor.setFilters(new LoggingFilter("LoggingFilter1"));
     acceptor.setIoHandler(new AbstractIoHandler() {
