@@ -1,8 +1,6 @@
 package com.labatlas.atlas.servers;
 
 import java.net.InetSocketAddress;
-import org.apache.mina.api.AbstractIoHandler;
-import org.apache.mina.api.IoSession;
 import org.apache.mina.transport.nio.NioTcpServer;
 
 /**
@@ -27,19 +25,7 @@ public class MessageServer {
       }
       started = true;
       server.setFilters(new MessagePackFilter());
-      server.setIoHandler(new AbstractIoHandler() {
-
-        @Override
-        public void sessionOpened(IoSession session) {
-          System.out.println("New session");
-        }
-
-        @Override
-        public void messageReceived(IoSession session, Object message) {
-          System.out.println("Message:" + message);
-        }
-
-      });
+      server.setIoHandler(new MessageServerHandler());
       server.setReuseAddress(true);
       server.bind(new InetSocketAddress(port));
     }

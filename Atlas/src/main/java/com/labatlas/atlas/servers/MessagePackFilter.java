@@ -1,6 +1,9 @@
 package com.labatlas.atlas.servers;
 
+import com.labatlas.atlas.message.Message;
+import com.labatlas.atlas.message.MessageGenerator;
 import java.nio.ByteBuffer;
+import java.util.LinkedList;
 import org.apache.mina.api.IdleStatus;
 import org.apache.mina.api.IoFilter;
 import org.apache.mina.api.IoSession;
@@ -8,11 +11,6 @@ import org.apache.mina.filterchain.ReadFilterChainController;
 import org.apache.mina.filterchain.WriteFilterChainController;
 import org.apache.mina.session.AttributeKey;
 import org.apache.mina.session.WriteRequest;
-import org.msgpack.MessagePack;
-import org.msgpack.type.Value;
-import org.msgpack.unpacker.BufferUnpacker;
-import org.msgpack.unpacker.Converter;
-import org.msgpack.unpacker.UnpackerIterator;
 
 /**
  *
@@ -20,20 +18,15 @@ import org.msgpack.unpacker.UnpackerIterator;
  */
 public class MessagePackFilter implements IoFilter {
 
-  private static final AttributeKey BUFFER_UNPACKER_KEY = new AttributeKey(BufferUnpacker.class, "BufferUnpacker");
-  private static final AttributeKey UNPACKER_ITERATOR_KEY = new AttributeKey(UnpackerIterator.class, "BufferUnpackerIterator");
-  private final MessagePack messagePack;
+  private static final AttributeKey MESSAGE_GENERATOR = new AttributeKey(MessageGenerator.class, "MessageGenerator");
 
   public MessagePackFilter() {
-    messagePack = new MessagePack();
   }
 
   @Override
   public void sessionOpened(IoSession is) {
-    BufferUnpacker bufferUnpacker = messagePack.createBufferUnpacker();
-    is.setAttribute(BUFFER_UNPACKER_KEY, bufferUnpacker);
-    UnpackerIterator iterator = bufferUnpacker.iterator();
-    is.setAttribute(UNPACKER_ITERATOR_KEY, iterator);
+    MessageGenerator messageGenerator = new MessageGenerator();
+    is.setAttribute(MESSAGE_GENERATOR, messageGenerator);
   }
 
   @Override
@@ -46,31 +39,42 @@ public class MessagePackFilter implements IoFilter {
 
   @Override
   public void messageReceived(IoSession is, Object o, ReadFilterChainController rfcc) {
-    try {
-      if (o instanceof ByteBuffer) {
-        ByteBuffer buffer = (ByteBuffer) o;
-        BufferUnpacker bufferUnpacker = (BufferUnpacker) is.getAttribute(BUFFER_UNPACKER_KEY);
-        UnpackerIterator iterator = (UnpackerIterator) is.getAttribute(UNPACKER_ITERATOR_KEY);
-        bufferUnpacker.feed(buffer);
-        while (iterator.hasNext()) {
-          Value value = iterator.next();
-          System.out.println(value);
+    if (o instanceof ByteBuffer) {
+      ByteBuffer buffer = (ByteBuffer) o;
+      MessageGenerator generator = (MessageGenerator) is.getAttribute(MESSAGE_GENERATOR);
+      LinkedList<Message> messageList = new LinkedList<>();
+      while (buffer.hasRemaining()) {
+        int remaining = buffer.remaining();
+        generator.feed(buffer);
+        if (remaining == buffer.remaining()) {
+          throw new IllegalArgumentException("Message too long.");
         }
-      } else {
-        rfcc.callReadNextFilter(o);
+        while (true) {
+          Message next = generator.next();
+          if (next == null) {
+            break;
+          }
+          messageList.add(next);
+        }
       }
-    } catch (Exception e) {
-      e.printStackTrace();
-      is.close(true);
+      if (!messageList.isEmpty()) {
+        rfcc.callReadNextFilter(messageList);
+      }
+    } else {
+      rfcc.callReadNextFilter(o);
     }
   }
 
   @Override
   public void messageWriting(IoSession is, WriteRequest wr, WriteFilterChainController wfcc) {
+    Object messageObject = wr.getMessage();
+    if (messageObject instanceof Message) {
+      wr.setMessage(ByteBuffer.wrap(((Message) messageObject).pack()));
+    }
+    wfcc.callWriteNextFilter(wr);
   }
 
   @Override
   public void messageSent(IoSession is, Object o) {
   }
-
 }
