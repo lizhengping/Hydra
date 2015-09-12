@@ -12,7 +12,7 @@ public class TEST {
   public static void main(String[] args) throws InterruptedException, IOException {
     MessageServer server = new MessageServer(9997);
     server.start();
-    Thread.sleep(10000);
+    Thread.sleep(30000);
     System.exit(0);
   }
 }

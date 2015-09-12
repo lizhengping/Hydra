@@ -2,6 +2,7 @@ package com.labatlas.atlas.servers;
 
 import com.labatlas.atlas.Client;
 import com.labatlas.atlas.message.Message;
+import com.labatlas.atlas.message.MessageFormatException;
 import java.util.Collection;
 import org.apache.mina.api.IdleStatus;
 import org.apache.mina.api.IoHandler;
@@ -65,8 +66,13 @@ public class MessageServerHandler implements IoHandler {
 
   @Override
   public void exceptionCaught(IoSession session, Exception cause) {
-    LOGGER.info("Exception caught, Session[" + session.getId() + "] is about to close.", cause);
-    session.close(true);
+    if (cause instanceof MessageFormatException) {
+      MessageFormatException mfe = (MessageFormatException) cause;
+      session.write(mfe.getMessageObject().responseError().put(Message.KEY_ERROR_MESSAGE, mfe.getMessage()));
+    } else {
+      LOGGER.info("Exception caught, Session[" + session.getId() + "] is about to close.", cause);
+      session.close(true);
+    }
   }
 
 }

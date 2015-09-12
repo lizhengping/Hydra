@@ -22,4 +22,7 @@ public class MessageFormatException extends RuntimeException {
     this.message = message;
   }
 
+  public Message getMessageObject() {
+    return message;
+  }
 }

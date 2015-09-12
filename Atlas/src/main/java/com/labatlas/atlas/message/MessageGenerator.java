@@ -1,6 +1,7 @@
 package com.labatlas.atlas.message;
 
 import java.io.EOFException;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.msgpack.core.MessagePack;
 import org.msgpack.core.MessageUnpacker;
@@ -53,7 +54,7 @@ public class MessageGenerator {
       return nextMessage;
     } catch (EOFException e) {
       return null;
-    } catch (Exception e) {
+    } catch (IOException e) {
       throw new RuntimeException(e);
     }
   }
