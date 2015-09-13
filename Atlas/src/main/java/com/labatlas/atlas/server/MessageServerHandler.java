@@ -1,8 +1,8 @@
-package com.labatlas.atlas.servers;
+package com.labatlas.atlas.server;
 
 import com.labatlas.atlas.Client;
-import com.labatlas.atlas.message.Message;
-import com.labatlas.atlas.message.MessageFormatException;
+import com.labatlas.atlas.Message;
+import com.labatlas.atlas.MessageFormatException;
 import java.util.Collection;
 import org.apache.mina.api.IdleStatus;
 import org.apache.mina.api.IoHandler;

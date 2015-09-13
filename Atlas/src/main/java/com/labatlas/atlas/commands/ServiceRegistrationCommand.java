@@ -1,8 +1,8 @@
-package com.labatlas.atlas.message.commands;
+package com.labatlas.atlas.commands;
 
 import com.labatlas.atlas.Client;
 import com.labatlas.atlas.Command;
-import com.labatlas.atlas.message.Message;
+import com.labatlas.atlas.Message;
 import java.util.List;
 
 /**

@@ -1,8 +1,5 @@
 package com.labatlas.atlas;
 
-import com.labatlas.atlas.message.Message;
-import com.labatlas.atlas.message.MessageFormatException;
-
 /**
  *
  * @author Hwaipy

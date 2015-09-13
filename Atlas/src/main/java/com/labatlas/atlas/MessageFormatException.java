@@ -1,4 +1,4 @@
-package com.labatlas.atlas.message;
+package com.labatlas.atlas;
 
 /**
  *

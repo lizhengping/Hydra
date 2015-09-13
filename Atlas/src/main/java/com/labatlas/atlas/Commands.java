@@ -1,6 +1,6 @@
 package com.labatlas.atlas;
 
-import com.labatlas.atlas.message.commands.ServiceRegistrationCommand;
+import com.labatlas.atlas.commands.ServiceRegistrationCommand;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**

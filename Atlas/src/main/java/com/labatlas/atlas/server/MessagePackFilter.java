@@ -1,7 +1,7 @@
-package com.labatlas.atlas.servers;
+package com.labatlas.atlas.server;
 
-import com.labatlas.atlas.message.Message;
-import com.labatlas.atlas.message.MessageGenerator;
+import com.labatlas.atlas.Message;
+import com.labatlas.atlas.MessageGenerator;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import org.apache.mina.api.IdleStatus;

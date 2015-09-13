@@ -14,6 +14,7 @@ if __name__ == "__main__":
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******1")
 
     ##### Register services
     messageRegisterService = {"Request": "ServiceRegistration", "ID": 1, "Service": ["PowerMeter", "DC Supply"]}
@@ -21,6 +22,7 @@ if __name__ == "__main__":
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******2")
 
     ##### Test
     # messageTest = "TestMessage"
@@ -30,15 +32,33 @@ if __name__ == "__main__":
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******3")
+
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******4")
+
+    ##### Response to version Request
+    messageRegisterService = {"Response": "Version", "ID": 1, "Version": "1.0.0.20150912",
+                              'To': {'Name': 'PowerMeterMonitor', 'ClientID': 1}}
+    socket.send(msgpack.packb(messageRegisterService))
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******5")
+
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******6")
+
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("******7")
+
+    data = socket.recv(1000)
+    message = msgpack.unpackb(data, encoding='utf-8')
+    print(message)
+    print("******")

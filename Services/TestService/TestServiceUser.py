@@ -14,13 +14,15 @@ if __name__ == "__main__":
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("----")
 
     ##### Quest
-    messageRegisterService = {"Request": "Version", "ID": 1, "Target": "PowerMeter"}
+    messageRegisterService = {"Request": "Version", "ID": 1, "Target": "VirtualPowerMeter"}
     socket.send(msgpack.packb(messageRegisterService))
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("----")
 
     ##### Register services
     # messageRegisterService = {"ServiceRegister": ["PowerMeter"]}
@@ -35,6 +37,8 @@ if __name__ == "__main__":
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("----")
     data = socket.recv(1000)
     message = msgpack.unpackb(data, encoding='utf-8')
     print(message)
+    print("----")

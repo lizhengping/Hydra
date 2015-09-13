@@ -19,6 +19,7 @@ public class ServiceManager {
 
     return service;
   }
+
   private static final ServiceManager INSTANCE = new ServiceManager();
 
   public static ServiceManager getDefault() {

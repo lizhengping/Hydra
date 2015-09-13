@@ -1,9 +1,7 @@
-package com.labatlas.atlas.message;
+package com.labatlas.atlas;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.labatlas.atlas.Command;
-import com.labatlas.atlas.Commands;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,13 +22,19 @@ public class Message {
   public static final String KEY_ERROR = "Error";
   public static final String KEY_ERROR_MESSAGE = "ErrorMessage";
   public static final String KEY_STATUS = "Status";
+  public static final String KEY_TARGET = "Target";
+  public static final String KEY_FROM = "From";
+  public static final String KEY_To = "To";
+  public static final String KEY_CONTINUES = "Continues";
   public static final String VALUE_STATUS_OK = "Ok";
   public static final String COMMAND_CONNECTION = "Connection";
   private final HashMap attributes = new HashMap();
   private Type type;
   private String commandString = "Unknown";
   private Command command;
+  private Target target;
   private long id = -1;
+  private boolean continues = false;
 
   public Message() {
   }
@@ -45,6 +49,18 @@ public class Message {
 
   public Command getCommand() {
     return command;
+  }
+
+  public Target getTarget() {
+    return target;
+  }
+
+  public long getID() {
+    return id;
+  }
+
+  public boolean isContinues() {
+    return continues;
   }
 
   public Message put(String key, Object value) {
@@ -108,12 +124,19 @@ public class Message {
     return attributes.containsKey(key);
   }
 
+  public Message copy() {
+    Message copy = new Message();
+    copy.attributes.putAll(attributes);
+    copy.extractEssentialFields();
+    return copy;
+  }
+
   public Message response() {
-    return new Message().put(KEY_RESPONSE, command).put(KEY_ID, id);
+    return new Message().put(KEY_RESPONSE, commandString).put(KEY_ID, id);
   }
 
   public Message responseError() {
-    return new Message().put(KEY_ERROR, command).put(KEY_ID, id);
+    return new Message().put(KEY_ERROR, commandString).put(KEY_ID, id);
   }
 
   /**
@@ -170,6 +193,15 @@ public class Message {
         id = (long) IDO;
       } else {
         throw new MessageFormatException("Command should be Integer.", this);
+      }
+    }
+    target = Target.create(this);
+    if (type == Type.RESPONSE && attributes.containsKey(KEY_CONTINUES)) {
+      Object continuesO = attributes.get(KEY_CONTINUES);
+      if (continuesO == null || !(continuesO instanceof Boolean)) {
+        throw new MessageFormatException("Continues should be boolean.", this);
+      } else {
+        continues = (boolean) continuesO;
       }
     }
   }

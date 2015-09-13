@@ -1,4 +1,4 @@
-package com.labatlas.atlas.servers;
+package com.labatlas.atlas.server;
 
 import java.net.InetSocketAddress;
 import org.apache.mina.transport.nio.NioTcpServer;
