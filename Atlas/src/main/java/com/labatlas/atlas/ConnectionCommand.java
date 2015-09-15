@@ -18,7 +18,7 @@ class ConnectionCommand extends Command {
       String name = message.get(Message.KEY_NAME, String.class);
       client.init(name);
       Message response = message.response();
-      message.put(Message.KEY_CLIENT_ID, client.getId());
+      response.put(Message.KEY_CLIENT_ID, client.getId());
       client.response(response);
     }
   }

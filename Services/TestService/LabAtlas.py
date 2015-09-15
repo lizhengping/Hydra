@@ -1,86 +1,165 @@
 __author__ = 'Hwaipy'
 import socket
-from io import BytesIO
 import time
 import threading
 import msgpack
+import random
+import queue
+import enum
 
 
-class Client:
-    def __init__(self, messagePort, broadcastPort):
+class ClientRunner:
+    def __init__(self, messagePort=20001, broadcastPort=20051, services=None, commander=None):
         self.messagePort = messagePort
         self.broadcastPort = broadcastPort
+        self.services = services
+        self.commander = commander
 
     def start(self):
         threading._start_new_thread(self.run, ())
 
     def run(self):
         while True:
-#            try:
-            self.loop()
-#            except:
-#                pass
+            try:
+                self.startClient()
+            finally:
+                print("one client failed")
+                self.client.running = False
+                time.sleep(random.Random().randint(100, 1000) / 1000)
 
-    def loop(self):
+    def startClient(self):
+        self.client = Client(self.messagePort, self.broadcastPort, self.commander)
+        if self.services:
+            self.client.registerServices(self.services)
+        self.client.start()
+
+
+class Client:
+    def __init__(self, messagePort, broadcastPort, commander={}):
+        self.messagePort = messagePort
+        self.broadcastPort = broadcastPort
+        self.messageID = 0
+        self.messageIndex = 0
+        self.sendQueue = queue.Queue()
+
+        def connectionHandler(message):
+            if message.type == Message.Type.Response:
+                self.clientID = message.content.get("ClientID")
+                if self.services:
+                    serv = []
+                    serv += (self.services)
+                    self.sendMessageLater(Message.createRequest("ServiceRegistration", {"Service": serv}))
+            else:
+                raise
+
+        self.unregistratedService = 3
+
+        def serviceRegistrationHandler(message):
+            if message.type == Message.Type.Response:
+                self.unregistratedService -= 1
+                print(self.unregistratedService)
+            else:
+                raise
+
+        self.commander = {"Connection": connectionHandler, "ServiceRegistration": serviceRegistrationHandler}
+        self.commander.update(commander)
+
+    def start(self):
         addressSeeker = AddressSeeker(self.broadcastPort)
         address = addressSeeker.seek()
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect((address[0],self.messagePort))
+        self.socket.connect((address[0], self.messagePort))
+        self.running = True
 
-        ##### Register client
-        messageRegisterClient = {"Request": "Connection", "ID": 0, "Name": "VirtualPowerMeter"}
-        self.socket.send(msgpack.packb(messageRegisterClient))
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******1")
+        threading._start_new_thread(self.receiveLoop, ())
+        threading._start_new_thread(self.sendLoop, ())
 
-        ##### Register services
-        messageRegisterService = {"Request": "ServiceRegistration", "ID": 1, "Service": ["PowerMeter", "DC Supply"]}
-        self.socket.send(msgpack.packb(messageRegisterService))
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******2")
+        self.sendMessageLater(Message.createRequest("Connection", {"Name": "VirtualPowerMeter"}))
+        while self.running:
+            time.sleep(1)
 
-        ##### Test
-        # messageTest = "TestMessage"
-        # socket.send(msgpack.packb(messageTest))
-        # data = socket.recv(1000)
+    def registerServices(self, services):
+        if type(services) == str:
+            services = [services]
+        self.services = services
 
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******3")
+    def registerCommand(self, command, function):
+        if self.commander.__contains__(command):
+            pass
+        self.commander.__setitem__(command, function)
 
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******4")
+    def sendMessageLater(self, message):
+        self.sendQueue.put(message)
 
-        ##### Response to version Request
-        messageRegisterService = {"Response": "Version", "ID": 1, "Version": "1.0.0.20150912",
-                                  'To': {'Name': 'PowerMeterMonitor', 'ClientID': 1}}
-        self.socket.send(msgpack.packb(messageRegisterService))
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******5")
+    def sendLoop(self):
+        try:
+            while self.running:
+                message = self.sendQueue.get()
+                self.socket.send(msgpack.packb(message.content))
+        finally:
+            self.running = False
 
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******6")
+    def receiveLoop(self):
+        self.unpacker = msgpack.Unpacker(encoding='utf-8')
+        try:
+            while self.running:
+                data = self.socket.recv(10000000)
+                self.unpacker.feed(data)
+                for packed in self.unpacker:
+                    message = Message.wrap(packed)
+                    self.messageDeal(message)
+        finally:
+            self.running = False
 
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******7")
+    def messageDeal(self, message):
+        command = message.command
+        commander = self.commander.get(command)
+        if commander != None:
+            commander(message)
 
-        data = self.socket.recv(1000)
-        message = msgpack.unpackb(data, encoding='utf-8')
-        print(message)
-        print("******")
+
+class Message:
+    messageIndex = 0
+
+    def __init__(self, content={}):
+        self.content = content
+
+    def __extractEssentialFields(self):
+        requestCommandO = self.content.get("Request")
+        responseCommandO = self.content.get("Response")
+        IDO = self.content.get("ID")
+        if requestCommandO == None:
+            if responseCommandO == None:
+                self.type = Message.Type.Error
+            else:
+                self.command = responseCommandO;
+                self.type = Message.Type.Response;
+        else:
+            if responseCommandO == None:
+                self.command = requestCommandO;
+                self.type = Message.Type.Request;
+            else:
+                self.type = Message.Type.Error
+        self.ID = IDO
+
+    @staticmethod
+    def createRequest(command, content={}):
+        message = Message(content)
+        message.content.__setitem__("Request", command)
+        message.content.__setitem__("ID", Message.messageIndex)
+        Message.messageIndex += 1
+        return message
+
+    @staticmethod
+    def wrap(content):
+        message = Message(content)
+        message.__extractEssentialFields()
+        return message
+
+    class Type(enum.Enum):
+        Request = 1
+        Response = 2
+        Error = 3
 
 
 class AddressSeeker:
@@ -106,6 +185,7 @@ class AddressSeeker:
     def tryReceive(self):
         begin = time.time()
         timeout = 1
+        message = None
         while True:
             if time.time() - begin > timeout:
                 break
@@ -124,8 +204,51 @@ class AddressSeeker:
         return None
 
 
+class MessageUnpacker:
+    def feed(self, data):
+        self.unpacker.feed(data)
+
+    def unpack(self):
+        return [message for message in self.unpacker]
+
+
 if __name__ == "__main__":
-    client = Client(50001, 50051)
-    client.start()
+    runner = ClientRunner(services=["PowerMeter", "PowerMeter1", "PowerMeter2"],
+                          commander={"Version": "hha"})
+    runner.start()
 
     time.sleep(3000)
+    # {"Response": "Version", "ID": 1, "Version": "1.0.0.20150912",
+    # 'To': {'Name': 'PowerMeterMonitor', 'ClientID': 1}
+
+
+def test():
+    messages = []
+    for i in range(10):
+        messages.append({"Request": "Connection", "ID": i, "Name": "VirtualPowerMeter"})
+    data = [msgpack.packb(message) for message in messages]
+    unpacker = MessageUnpacker()
+    unpacker.feed(data[0])
+    unpacker.feed(data[1])
+    msg1 = unpacker.unpack()
+    assert msg1.__len__() == 2
+    assert msg1[0].get("ID") == 0
+    assert msg1[1].get("ID") == 1
+    unpacker.feed(data[2][:20])
+    msg2 = unpacker.unpack()
+    assert msg2.__len__() == 0
+    unpacker.feed(data[2][20:])
+    unpacker.feed(data[3][:10])
+    msg3 = unpacker.unpack()
+    assert msg3.__len__() == 1
+    assert msg3[0].get("ID") == 2
+    unpacker.feed(data[3][10:25])
+    msg4 = unpacker.unpack()
+    assert msg4.__len__() == 0
+    unpacker.feed(data[3][25:])
+    unpacker.feed(data[4])
+    msg5 = unpacker.unpack()
+    assert msg5.__len__() == 2
+    assert msg5[0].get("ID") == 3
+    assert msg5[1].get("ID") == 4
+

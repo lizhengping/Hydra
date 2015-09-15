@@ -11,8 +11,8 @@ import java.io.IOException;
 public class TEST {
 
   public static void main(String[] args) throws InterruptedException, IOException {
-    int messagePort = 50001;
-    int broadcastPort = 50051;
+    int messagePort = 20001;
+    int broadcastPort = 20051;
 
     new MessageServer(messagePort).start();
     BroadCastServer.start(broadcastPort);
@@ -20,4 +20,5 @@ public class TEST {
     Thread.sleep(1000000);
     System.exit(0);
   }
+
 }
