@@ -9,11 +9,12 @@ import enum
 
 
 class ClientRunner:
-    def __init__(self, messagePort=20001, broadcastPort=20051, services=None, commander=None):
+    def __init__(self, name, messagePort=20101, broadcastPort=20151, services=None, commander=None):
         self.messagePort = messagePort
         self.broadcastPort = broadcastPort
         self.services = services
         self.commander = commander
+        self.name = name
 
     def start(self):
         threading._start_new_thread(self.run, ())
@@ -28,16 +29,17 @@ class ClientRunner:
                 time.sleep(random.Random().randint(100, 1000) / 1000)
 
     def startClient(self):
-        self.client = Client(self.messagePort, self.broadcastPort, self.commander)
+        self.client = Client(self.name, self.messagePort, self.broadcastPort, self.commander)
         if self.services:
             self.client.registerServices(self.services)
         self.client.start()
 
 
 class Client:
-    def __init__(self, messagePort, broadcastPort, commander={}):
+    def __init__(self, name, messagePort, broadcastPort, commander={}):
         self.messagePort = messagePort
         self.broadcastPort = broadcastPort
+        self.name = name
         self.messageID = 0
         self.messageIndex = 0
         self.sendQueue = queue.Queue()
@@ -74,7 +76,7 @@ class Client:
         threading._start_new_thread(self.receiveLoop, ())
         threading._start_new_thread(self.sendLoop, ())
 
-        self.sendMessageLater(Message.createRequest("Connection", {"Name": "VirtualPowerMeter"}))
+        self.sendMessageLater(Message.createRequest("Connection", {"Name": self.name}))
         while self.running:
             time.sleep(1)
 
@@ -170,7 +172,7 @@ class AddressSeeker:
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
         self.socket.setblocking(False)
         self.message = bytes("Connection?", encoding="UTF-8");
-        self.ip = "192.168.1.255"
+        self.ip = "192.168.1.104"
 
     def seek(self):
         while True:
@@ -180,6 +182,7 @@ class AddressSeeker:
                 return address
 
     def broadcastConnectionRequest(self):
+        print((self.ip, self.port))
         self.socket.sendto(self.message, (self.ip, self.port))
 
     def tryReceive(self):
@@ -213,7 +216,7 @@ class MessageUnpacker:
 
 
 if __name__ == "__main__":
-    runner = ClientRunner(services=["PowerMeter", "PowerMeter1", "PowerMeter2"],
+    runner = ClientRunner("TestService", services=["PowerMeter", "PowerMeter1", "PowerMeter2"],
                           commander={"Version": "hha"})
     runner.start()
 
