@@ -34,6 +34,9 @@ class ClientRunner:
             self.client.registerServices(self.services)
         self.client.start()
 
+    def send(self, message):
+        self.client.sendMessageLater(message)
+
 
 class Client:
     def __init__(self, name, messagePort, broadcastPort, commander={}):
@@ -59,7 +62,6 @@ class Client:
         def serviceRegistrationHandler(message):
             if message.type == Message.Type.Response:
                 self.unregistratedService -= 1
-                print(self.unregistratedService)
             else:
                 raise
 
@@ -126,6 +128,14 @@ class Message:
     def __init__(self, content={}):
         self.content = content
 
+    def response(self):
+        response = Message()
+        response.content.__setitem__("ID", self.content.get("ID"))
+        response.content.__setitem__("Response", self.content.get("Request"))
+        if (self.content.__contains__("Target")):
+            response.content.__setitem__("To", self.content.get("From"))
+        return response
+
     def __extractEssentialFields(self):
         requestCommandO = self.content.get("Request")
         responseCommandO = self.content.get("Response")
@@ -170,9 +180,9 @@ class AddressSeeker:
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        self.socket.setblocking(False)
+        self.socket.setblocking(True)
         self.message = bytes("Connection?", encoding="UTF-8");
-        self.ip = "192.168.1.104"
+        self.ip = "192.168.1.255"
 
     def seek(self):
         while True:
@@ -182,7 +192,6 @@ class AddressSeeker:
                 return address
 
     def broadcastConnectionRequest(self):
-        print((self.ip, self.port))
         self.socket.sendto(self.message, (self.ip, self.port))
 
     def tryReceive(self):
@@ -193,16 +202,16 @@ class AddressSeeker:
             if time.time() - begin > timeout:
                 break
             try:
-                message = self.socket.recvmsg(1024)
+                message, address = self.socket.recvfrom(1024)
                 if message:
                     break
                 else:
                     time.sleep(0.1)
-            except:
+            finally:
                 time.sleep(0.1)
         if message:
-            if "Connection".__eq__(str(message[0], "UTF-8")):
-                return message[3]
+            if "Connection".__eq__(str(message, "UTF-8")):
+                return address
         time.sleep(timeout)
         return None
 
@@ -220,7 +229,10 @@ if __name__ == "__main__":
                           commander={"Version": "hha"})
     runner.start()
 
-    time.sleep(3000)
+    time.sleep(1000)
+
+
+
     # {"Response": "Version", "ID": 1, "Version": "1.0.0.20150912",
     # 'To': {'Name': 'PowerMeterMonitor', 'ClientID': 1}
 

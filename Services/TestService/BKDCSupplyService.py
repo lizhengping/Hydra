@@ -8,12 +8,51 @@ import LabAtlas
 
 
 class BKDCSupplyService:
-    def __init__(self, name):
+    def __init__(self, name, com):
         self.runner = LabAtlas.ClientRunner(name, services=["DC Supply"],
-                                            commander={"Version": "hha"})
+                                            commander={"Set": self.cmdSet,
+                                                       "Output": self.cmdOutput,
+                                                       "Measure": self.cmdMeasure,
+                                                       "Remote": self.cmdRemote})
+        self.dcSupply = BKDCSupply(com)
+        self.name = name
 
     def start(self):
         self.runner.start()
+
+    def cmdSet(self, message):
+        print(message.content)
+        voltages = message.content.get("Voltages")
+        currents = message.content.get("Currents")
+        for i in range(3):
+            self.dcSupply.setVoltage(i, voltages[i])
+            self.dcSupply.setCurrent(i, currents[i])
+        self.dcSupply.__applyVoltage__()
+        time.sleep(0.5)
+        self.dcSupply.__applyCurrent__()
+        time.sleep(0.5)
+
+    def cmdOutput(self, message):
+        print(message.content)
+        outputs = message.content.get("Outputs")
+        for i in range(3):
+            if outputs[i]:
+                self.dcSupply.turnOn(i)
+            else:
+                self.dcSupply.turnOff(i)
+        self.dcSupply.__applyOutput__()
+        time.sleep(1)
+
+    def cmdMeasure(self, message):
+        results = self.dcSupply.measureAll()
+        response = message.response()
+        response.content.__setitem__("Voltages", results[0])
+        response.content.__setitem__("Currents", results[1])
+        response.content.__setitem__("Source", self.name)
+        self.runner.send(response)
+
+    def cmdRemote(self, message):
+        self.dcSupply.remote()
 
 
 class BKDCSupply:
@@ -24,25 +63,24 @@ class BKDCSupply:
         self.outputs = [0, 0, 0]
         threading._start_new_thread(self.underlying.start, ())
 
+    def remote(self):
+        self.underlying.remote()
+
     def setVoltage(self, channel, level):
         if channel >= 0 & channel < 3:
             self.voltages[channel] = level
-            self.__applyVoltage__()
 
     def setCurrent(self, channel, level):
         if channel >= 0 & channel < 3:
             self.currents[channel] = level
-            self.__applyCurrent__()
 
     def turnOn(self, channel):
         if channel >= 0 & channel < 3:
             self.outputs[channel] = True
-            self.__applyOutput__()
 
     def turnOff(self, channel):
         if channel >= 0 & channel < 3:
             self.outputs[channel] = False
-            self.__applyOutput__()
 
     def __applyVoltage__(self):
         self.underlying.setVoltage(self.voltages)
@@ -104,7 +142,7 @@ class DCSupplyBKUnderlying:
 
 
 if __name__ == "__main__":
-    service = BKDCSupplyService('DC Supply Alice 1')
+    service = BKDCSupplyService('DC Supply Alice 1', 'COM6')
     service.start()
     while True:
         time.sleep(1000)
