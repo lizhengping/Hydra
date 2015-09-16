@@ -56,12 +56,10 @@ public class MessageServerHandler implements IoHandler {
 
   @Override
   public void serviceActivated(IoService service) {
-    System.out.println("Service activeted");
   }
 
   @Override
   public void serviceInactivated(IoService service) {
-    System.out.println("Service inactivated");
   }
 
   @Override

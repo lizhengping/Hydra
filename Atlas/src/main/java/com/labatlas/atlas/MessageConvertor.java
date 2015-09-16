@@ -4,8 +4,10 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.msgpack.core.MessageTypeCastException;
 import org.msgpack.value.ArrayValue;
 import org.msgpack.value.BinaryValue;
+import org.msgpack.value.FloatValue;
 import org.msgpack.value.IntegerValue;
 import org.msgpack.value.MapValue;
 import org.msgpack.value.Value;
@@ -60,7 +62,7 @@ public class MessageConvertor {
       case BOOLEAN:
         return "true".equals(value.toString());
       case FLOAT:
-        return value.asFloatValue().toDouble();
+        return Double.parseDouble(value.toString());
       case INTEGER:
         IntegerValue integerValue = value.asIntegerValue();
         if (integerValue.isInLongRange()) {
