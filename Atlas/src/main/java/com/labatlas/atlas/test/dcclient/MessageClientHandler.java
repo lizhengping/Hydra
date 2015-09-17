@@ -124,9 +124,12 @@ public class MessageClientHandler implements IoHandler {
   }
 
   public void pockelsCellOn(int deviceIndex) {
-    Message remote = newRequest("Remote");
-    remote.put(Message.KEY_TARGET, deviceNames.get(deviceIndex));
-    session.write(remote);
+    Message remote1 = newRequest("Remote");
+    remote1.put(Message.KEY_TARGET, deviceNames.get(deviceIndex));
+    session.write(remote1);
+    Message remote2 = newRequest("Remote");
+    remote2.put(Message.KEY_TARGET, deviceNames.get(deviceIndex + 1));
+    session.write(remote2);
     try {
       Thread.sleep(1000);
     } catch (InterruptedException ex) {
@@ -209,6 +212,64 @@ public class MessageClientHandler implements IoHandler {
     session.write(on4);
     try {
       Thread.sleep(3000);
+    } catch (InterruptedException ex) {
+      java.util.logging.Logger.getLogger(MessageClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+
+  public void testOn() {
+    Message remote1 = newRequest("Remote");
+    remote1.put(Message.KEY_TARGET, deviceNames.get(1));
+    session.write(remote1);
+    Message remote2 = newRequest("Remote");
+    remote2.put(Message.KEY_TARGET, deviceNames.get(3));
+    session.write(remote2);
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException ex) {
+      java.util.logging.Logger.getLogger(MessageClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    Message set1 = newRequest("Set");
+    set1.put(Message.KEY_TARGET, deviceNames.get(1))
+            .put("Voltages", new double[]{0, 0, 6})
+            .put("Currents", new double[]{1, 1.5, 1});
+    session.write(set1);
+    Message set2 = newRequest("Set");
+    set2.put(Message.KEY_TARGET, deviceNames.get(3))
+            .put("Voltages", new double[]{0, 0, 6})
+            .put("Currents", new double[]{1, 1.5, 1});
+    session.write(set2);
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException ex) {
+      java.util.logging.Logger.getLogger(MessageClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    Message on1 = newRequest("Output");
+    on1.put(Message.KEY_TARGET, deviceNames.get(1))
+            .put("Outputs", new int[]{0, 0, 1});
+    session.write(on1);
+    Message on2 = newRequest("Output");
+    on2.put(Message.KEY_TARGET, deviceNames.get(3))
+            .put("Outputs", new int[]{0, 0, 1});
+    session.write(on2);
+    try {
+      Thread.sleep(1000);
+    } catch (InterruptedException ex) {
+      java.util.logging.Logger.getLogger(MessageClientHandler.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+
+  public void testOff() {
+    Message on1 = newRequest("Output");
+    on1.put(Message.KEY_TARGET, deviceNames.get(1))
+            .put("Outputs", new int[]{0, 0, 0});
+    session.write(on1);
+    Message on2 = newRequest("Output");
+    on2.put(Message.KEY_TARGET, deviceNames.get(3))
+            .put("Outputs", new int[]{0, 0, 0});
+    session.write(on2);
+    try {
+      Thread.sleep(1000);
     } catch (InterruptedException ex) {
       java.util.logging.Logger.getLogger(MessageClientHandler.class.getName()).log(Level.SEVERE, null, ex);
     }

@@ -12,6 +12,8 @@ import java.text.DecimalFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -80,6 +82,7 @@ public class DCSupplyFrame extends javax.swing.JFrame {
     jTextArea1 = new javax.swing.JTextArea();
     jToggleButtonAlice = new javax.swing.JToggleButton();
     jToggleButtonBob = new javax.swing.JToggleButton();
+    jToggleButton1 = new javax.swing.JToggleButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setTitle("Pockels Cell Controller");
@@ -107,6 +110,14 @@ public class DCSupplyFrame extends javax.swing.JFrame {
       }
     });
 
+    jToggleButton1.setText("TEST");
+    jToggleButton1.setEnabled(false);
+    jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jToggleButton1ActionPerformed(evt);
+      }
+    });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -114,11 +125,17 @@ public class DCSupplyFrame extends javax.swing.JFrame {
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 575, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jToggleButtonAlice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-          .addComponent(jToggleButtonBob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addContainerGap())
+          .addGroup(layout.createSequentialGroup()
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jToggleButtonAlice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+              .addComponent(jToggleButtonBob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
+          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jToggleButton1)
+            .addGap(77, 77, 77))))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,27 +143,54 @@ public class DCSupplyFrame extends javax.swing.JFrame {
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
+            .addComponent(jScrollPane1)
+            .addContainerGap())
+          .addGroup(layout.createSequentialGroup()
             .addComponent(jToggleButtonAlice, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jToggleButtonBob, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(0, 165, Short.MAX_VALUE))
-          .addComponent(jScrollPane1))
-        .addContainerGap())
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
+            .addComponent(jToggleButton1)
+            .addGap(68, 68, 68))))
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
   private void jToggleButtonAliceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonAliceActionPerformed
+    if (jToggleButtonAlice.isSelected()) {
+      String input = JOptionPane.showInputDialog(rootPane, "你正在进行高危操作，请输入下面的信息\nDANCE ALICE", "Confirm", JOptionPane.OK_CANCEL_OPTION);
+      if (input == null || !input.equals("DANCE ALICE")) {
+        jToggleButtonAlice.setSelected(false);
+        return;
+      }
+    }
     pockelsCellOnOff(0, jToggleButtonAlice);
   }//GEN-LAST:event_jToggleButtonAliceActionPerformed
 
   private void jToggleButtonBobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonBobActionPerformed
+    if (jToggleButtonBob.isSelected()) {
+      String input = JOptionPane.showInputDialog(rootPane, "你正在进行高危操作，请输入下面的信息\nRUN BOB", "Confirm", JOptionPane.OK_CANCEL_OPTION);
+      if (input == null || !input.equals("RUN BOB")) {
+        jToggleButtonBob.setSelected(false);
+        return;
+      }
+    }
     pockelsCellOnOff(2, jToggleButtonBob);
   }//GEN-LAST:event_jToggleButtonBobActionPerformed
+
+  private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    if (jToggleButtonAlice.isSelected() || jToggleButtonBob.isSelected()) {
+      jToggleButton1.setSelected(!jToggleButton1.isSelected());
+      return;
+    }
+    testOnOff();
+  }//GEN-LAST:event_jToggleButton1ActionPerformed
   private void pockelsCellOnOff(final int deviceIndex, final JToggleButton associatedButtion) {
     final boolean turnOn = associatedButtion.isSelected();
-    associatedButtion.setEnabled(false);
+    jToggleButtonAlice.setEnabled(false);
+    jToggleButtonBob.setEnabled(false);
+    jToggleButton1.setEnabled(false);
     new Thread(new Runnable() {
 
       @Override
@@ -160,7 +204,36 @@ public class DCSupplyFrame extends javax.swing.JFrame {
 
           @Override
           public void run() {
-            associatedButtion.setEnabled(true);
+            jToggleButtonAlice.setEnabled(true);
+            jToggleButtonBob.setEnabled(true);
+            jToggleButton1.setEnabled(true);
+          }
+        });
+      }
+    }).start();
+  }
+
+  private void testOnOff() {
+    final boolean turnOn = jToggleButton1.isSelected();
+    jToggleButtonAlice.setEnabled(false);
+    jToggleButtonBob.setEnabled(false);
+    jToggleButton1.setEnabled(false);
+    new Thread(new Runnable() {
+
+      @Override
+      public void run() {
+        if (turnOn) {
+          handler.testOn();
+        } else {
+          handler.testOff();
+        }
+        SwingUtilities.invokeLater(new Runnable() {
+
+          @Override
+          public void run() {
+            jToggleButtonAlice.setEnabled(true);
+            jToggleButtonBob.setEnabled(true);
+            jToggleButton1.setEnabled(true);
           }
         });
       }
@@ -191,6 +264,7 @@ public class DCSupplyFrame extends javax.swing.JFrame {
   public void setReady() {
     jToggleButtonAlice.setEnabled(true);
     jToggleButtonBob.setEnabled(true);
+    jToggleButton1.setEnabled(true);
   }
 
   private long[] updateTime = new long[]{System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis(), System.currentTimeMillis()};
@@ -224,7 +298,13 @@ public class DCSupplyFrame extends javax.swing.JFrame {
             .append(generateDisplayString(2, 0, "HV Driver")).append(System.lineSeparator())
             .append(generateDisplayString(2, 1, "HV Supply")).append(System.lineSeparator())
             .append(generateDisplayString(2, 2, "QRNG     ")).append(System.lineSeparator())
-            .append(generateDisplayString(3, 0, "Cooler   ")).append(System.lineSeparator());
+            .append(generateDisplayString(3, 0, "Cooler   ")).append(System.lineSeparator())
+            .append(System.lineSeparator())
+            .append("Test").append(System.lineSeparator())
+            .append(generateDisplayString(1, 1, "Alice 1  ")).append(System.lineSeparator())
+            .append(generateDisplayString(1, 2, "Alice 2  ")).append(System.lineSeparator())
+            .append(generateDisplayString(3, 1, "Bob   1  ")).append(System.lineSeparator())
+            .append(generateDisplayString(3, 2, "Bob   2  ")).append(System.lineSeparator());
     jTextArea1.setText(sb.toString());
     boolean warning = !allOnline;
     jTextArea1.setForeground(warning ? Color.RED : Color.BLACK);
@@ -248,6 +328,7 @@ public class DCSupplyFrame extends javax.swing.JFrame {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea jTextArea1;
+  private javax.swing.JToggleButton jToggleButton1;
   private javax.swing.JToggleButton jToggleButtonAlice;
   private javax.swing.JToggleButton jToggleButtonBob;
   // End of variables declaration//GEN-END:variables
