@@ -1,7 +1,5 @@
 package com.labatlas.atlas.tests;
 
-import com.labatlas.atlas.server.BroadCastServer;
-import com.labatlas.atlas.server.MessageServer;
 import java.io.IOException;
 
 /**
@@ -11,14 +9,14 @@ import java.io.IOException;
 public class TEST {
 
   public static void main(String[] args) throws InterruptedException, IOException {
-    int messagePort = 20001;
-    int broadcastPort = 20051;
-
-    new MessageServer(messagePort).start();
-    BroadCastServer.start(broadcastPort);
-
-    Thread.sleep(1000000);
-    System.exit(0);
+    System.setProperty("log4j.configurationFile", "./config/log4j.xml");
+//    int messagePort = 20001;
+//    int broadcastPort = 20051;
+//
+//    new MessageServer(messagePort).start();
+//    BroadCastServer.start(broadcastPort);
+//
+//    Thread.sleep(1000000);
+//    System.exit(0);
   }
-
 }
