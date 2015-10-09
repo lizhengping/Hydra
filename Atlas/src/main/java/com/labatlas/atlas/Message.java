@@ -161,22 +161,18 @@ public class Message {
   private void extractEssentialFields() throws IllegalArgumentException {
     Object requestCommandO = attributes.get(KEY_REQUEST);
     Object responseCommandO = attributes.get(KEY_RESPONSE);
+    Object errorCommandO = attributes.get(KEY_ERROR);
     Object IDO = attributes.get(KEY_ID);
     Object typeCommand;
-    if (requestCommandO == null) {
-      if (responseCommandO == null) {
-        throw new MessageFormatException("Either Request or Response should be assigned.", this);
-      } else {
-        typeCommand = responseCommandO;
-        type = Type.RESPONSE;
-      }
+    if (requestCommandO != null) {
+      typeCommand = requestCommandO;
+      type = Type.REQUEST;
+    } else if (responseCommandO != null) {
+      typeCommand = responseCommandO;
+      type = Type.RESPONSE;
     } else {
-      if (responseCommandO == null) {
-        typeCommand = requestCommandO;
-        type = Type.REQUEST;
-      } else {
-        throw new MessageFormatException("Message should only be either Request or Response.", this);
-      }
+      typeCommand = errorCommandO;
+      type = Type.ERROR;
     }
     if (typeCommand instanceof String) {
       commandString = (String) typeCommand;

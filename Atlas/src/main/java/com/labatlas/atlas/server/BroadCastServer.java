@@ -15,14 +15,12 @@ import org.slf4j.LoggerFactory;
 public class BroadCastServer {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(BroadCastServer.class);
-  private static final String BROADCAST_REQUEST_CONNECTION = "Connection?";
-  private static final String BROADCAST_RESPONSE_CONNECTION = "Connection";
-  private final int port;
+  public static final String BROADCAST_REQUEST_CONNECTION = "Connection?";
+  public static final String BROADCAST_RESPONSE_CONNECTION = "Connection";
   private final DatagramSocket server;
   private boolean started = false;
 
   private BroadCastServer(int port) throws SocketException {
-    this.port = port;
     server = new DatagramSocket(port);
   }
 
