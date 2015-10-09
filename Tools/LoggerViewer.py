@@ -1,9 +1,9 @@
 __author__ = 'Hwaipy'
-__version__ = 'v0.20151009'
+__version__ = 'v1.20151009'
 
 import sys
 from PyQt5.QtWidgets import QTableWidget, QAction, QMainWindow, QAbstractItemView, QTableWidgetItem, QDesktopWidget, \
-    QApplication, QFileDialog, QHeaderView, QVBoxLayout, QWidget
+    QApplication, QFileDialog, QHeaderView, QVBoxLayout, QWidget, QTextEdit, QComboBox, QLineEdit, QCheckBox
 from PyQt5.QtGui import QIcon, QKeySequence
 from PyQt5.QtCore import pyqtSignal
 import configparser, os
@@ -19,18 +19,15 @@ class MainFrame(QMainWindow):
         super().__init__()
         self.config = config
         self.logDataUpdateAction.connect(self.logDataUpdate)
+        self.records = None
+        self.searchText = ''
+        self.re = False
         self.initUI()
+        self.recordFilters = [self.__filterLevel, self.__filterSearch]
         self.records = Records(self.logDataUpdateAction.emit)
         self.__loadNewFile = self.__loadLogFile(self.config.get('gui', 'fileopenpath', '.'))
 
     def initUI(self):
-        # Actions with Toolbar and Shortcut
-        self.refreshAction = QAction(QIcon("resources/iris.png"), "Open", self)
-        self.refreshAction.setShortcut(QKeySequence("Ctrl+O"))
-        self.refreshAction.triggered.connect(self.actionOpen)
-        self.toolbar = self.addToolBar('Toolbar')
-        self.toolbar.addAction(self.refreshAction)
-
         # Setup table
         self.table = QTableWidget(0, 5)
         self.table.setEditTriggers(QAbstractItemView.NoEditTriggers)
@@ -38,13 +35,45 @@ class MainFrame(QMainWindow):
         self.table.setSelectionMode(QAbstractItemView.SingleSelection)
         self.table.setHorizontalHeaderLabels(['Time', 'Level', 'Thread', 'Logger', 'Message'])
         self.table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.table.currentCellChanged.connect(self.tableSelectionChanged)
+
+        # setup textArea
+        self.textArea = QTextEdit()
+        self.textArea.setReadOnly(True)
+
+        # Setup filtering Combo
+        self.levelFilterCombo = QComboBox()
+        self.levelFilterCombo.addItems(['ERROR', 'WARN', 'INFO', 'DEBUG', 'TRACE', 'ALL'])
+        self.levelFilterCombo.currentIndexChanged.connect(self.levelComboSelectionChanged)
+        self.levelFilterCombo.setCurrentText(self.config.get('gui', 'level', 'ALL'))
+
+        # Setup search LineEdit
+        self.searchBar = QLineEdit()
+        self.searchBar.editingFinished.connect(self.searchTextChanged)
+
+        # Setup RE RhackBox
+        self.reCheckBox = QCheckBox()
+        self.reCheckBox.setText('Regular Expression')
+        self.reCheckBox.stateChanged.connect(self.searchTextChanged)
+
+        # Actions with Toolbar and Shortcut
+        self.refreshAction = QAction(QIcon("resources/iris.png"), "Open", self)
+        self.refreshAction.setShortcut(QKeySequence("Ctrl+O"))
+        self.refreshAction.triggered.connect(self.actionOpen)
+        self.toolbar = self.addToolBar('Toolbar')
+        self.toolbar.setFloatable(False)
+        self.toolbar.setMovable(False)
+        self.toolbar.addAction(self.refreshAction)
+        self.toolbar.addWidget(self.levelFilterCombo)
+        self.toolbar.addWidget(self.searchBar)
+        self.toolbar.addWidget(self.reCheckBox)
 
         # Set main window
         self.mainWidget = QWidget(self)
         layout = QVBoxLayout()
         self.mainWidget.setLayout(layout)
         layout.addWidget(self.table)
-        layout.addWidget(QTableWidget(1, 1))
+        layout.addWidget(self.textArea)
         self.setCentralWidget(self.mainWidget)
         self.setGeometry(0, 0, 1200, 600)
         self.setWindowTitle('LoggerViewer {}'.format(__version__))
@@ -63,16 +92,58 @@ class MainFrame(QMainWindow):
 
     def logDataUpdate(self, event):
         action, records, index = event
+        self.table.setRowCount(records.__len__())
         if index >= 0:
-            self.table.setRowCount(records.__len__())
             record = records[index]
-            self.table.setItem(index, 0, QTableWidgetItem(record.time.strftime('%Y-%m-%d %H:%M:%S.%f')))
+            self.table.setItem(index, 0, QTableWidgetItem(record.time.strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]))
             self.table.setItem(index, 1, QTableWidgetItem(record.level))
             self.table.setItem(index, 2, QTableWidgetItem(record.thread))
             self.table.setItem(index, 3, QTableWidgetItem(record.logger))
-            self.table.setItem(index, 4, QTableWidgetItem(record.message))
+            message = '[*]' + record.message if record.message.__contains__('\n') else record.message
+            self.table.setItem(index, 4, QTableWidgetItem(message))
+            self.updateFiltering(index)
         else:
-            print('renew')
+            self.textArea.clear()
+
+    def tableSelectionChanged(self, currentRow, currentColumn, previousRow, previousColumn):
+        if currentRow >= 0:
+            message = self.records.records[currentRow].message
+            self.textArea.setText(message)
+        else:
+            self.textArea.clear()
+
+    def levelComboSelectionChanged(self, index):
+        self.__showLevel = index
+        if self.records:
+            self.updateFiltering()
+
+    def searchTextChanged(self):
+        self.searchText = self.searchBar.text()
+        self.re = self.reCheckBox.checkState()
+        if self.records:
+            self.updateFiltering()
+
+    def updateFiltering(self, index=None):
+        if not index == None:
+            hide = False
+            for filter in self.recordFilters:
+                if not filter(self.records.records[index]):
+                    hide = True
+                    break
+            if hide:
+                self.table.hideRow(index)
+            else:
+                self.table.showRow(index)
+        else:
+            for i in range(self.records.records.__len__()):
+                self.updateFiltering(i)
+
+
+    def __filterLevel(self, record):
+        return self.__showLevel >= record.getLevelIndex()
+
+    def __filterSearch(self, record):
+        return record.search(self.searchText, self.re)
 
     def __loadLogFile(self, fileName):
         running = False
@@ -97,14 +168,17 @@ class MainFrame(QMainWindow):
                         self.records.appendData(newData)
                     if newSize < size:
                         file.tell(0)
+                        self.records.clear()
                 except:
                     print('e')
                     size = 0
                     if not file == None:
                         file.close()
+                    self.records.clear()
                     self.setWindowTitle('LoggerViewer {}'.format(__version__))
                     file = None
                     time.sleep(1)
+            self.records.clear()
 
         def runLoop():
             nonlocal running, logFileName
@@ -125,7 +199,7 @@ class MainFrame(QMainWindow):
 
 class Records:
     def __init__(self, listener):
-        self.logHeadPatternDate = re.compile('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$');
+        self.logHeadPatternDate = re.compile('^[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]$')
         self.logHeadPatternTime = re.compile('^[0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9]$')
         self.logHeadPatternThread = re.compile('^\\[(.+)\\]$')
         self.listener = listener
@@ -141,6 +215,12 @@ class Records:
                 self.__appendRecord(record)
             else:
                 self.__updateRecord(line)
+
+    def clear(self):
+        self.records.clear()
+        if self.listener:
+            self.listener(['renew', self.records, -1])
+
 
     def __appendRecord(self, record):
         self.records.append(record)
@@ -160,20 +240,39 @@ class Records:
                     & (not self.logHeadPatternTime.match(split[1]) == None) \
                     & (not self.logHeadPatternThread.match(split[2]) == None):
                 time = datetime.datetime.strptime(' '.join(split[:2]), '%Y-%m-%d %H:%M:%S.%f')
-                return Record(time, split[2][1:-1], split[3], split[4], split[6])
+                return Record(time, split[2][1:-1], split[3], split[4], split[6], line)
         return None
 
 
 class Record:
-    def __init__(self, time, thread, level, logger, message):
+    LEVELS = ['ERROR', 'WARN', 'INFO', 'DEBUG', 'TRACE', 'ALL']
+
+    def __init__(self, time, thread, level, logger, message, original):
         self.time = time
         self.thread = thread
         self.level = level
         self.logger = logger
         self.message = message
+        if Record.LEVELS.__contains__(level):
+            self.levelIndex = Record.LEVELS.index(level)
+        else:
+            self.levelIndex = Record.LEVELS.__len__() - 1
+        self.original = original
 
     def appendMessage(self, messageLine):
         self.message += '\n' + messageLine
+
+    def getLevelIndex(self):
+        return self.levelIndex
+
+    def search(self, searchText, useRe):
+        if useRe:
+            return re.findall(searchText, self.original).__len__() > 0
+        else:
+            for t in re.split(' +', searchText):
+                if not self.original.lower().__contains__(t.lower()):
+                    return False
+            return True
 
     def __str__(self):
         return 'LogRecord {} [{}] {} {} - {}'.format(self.time, self.thread, self.level, self.logger, self.message)

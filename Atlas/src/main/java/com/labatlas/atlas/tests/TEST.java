@@ -22,10 +22,13 @@ public class TEST {
 //    Thread.sleep(1000000);
 //    System.exit(0);
     Logger logger = LoggerFactory.getLogger(TEST.class);
-    logger.error("this is a message");
-    logger.debug("a bug dispared.!!!\n\noh no !!\n\n", new RuntimeException(new IOError(new IOException("no"))));
-    logger.info("this a infomation is.");
-    logger.warn("not good");
-    logger.trace("steps", 1, 2, 3, 4, 5, "1231323", "wfawefef\newa\n\t,fe");
+    while (true) {
+      logger.error("this is a message");
+      logger.debug("a bug dispared.!!!\n\noh no !!\n\n", new RuntimeException(new IOError(new IOException("no"))));
+      logger.info("this a infomation is.");
+      logger.warn("not good");
+      logger.trace("steps", 1, 2, 3, 4, 5, "1231323", "wfawefef\newa\n\t,fe");
+      Thread.sleep(1000);
+    }
   }
 }
