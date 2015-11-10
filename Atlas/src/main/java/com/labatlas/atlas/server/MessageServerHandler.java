@@ -2,8 +2,10 @@ package com.labatlas.atlas.server;
 
 import com.labatlas.atlas.Client;
 import com.labatlas.atlas.Message;
-import com.labatlas.atlas.MessageFormatException;
+import com.labatlas.atlas.ProtocolException;
 import java.util.Collection;
+import java.util.Timer;
+import java.util.TimerTask;
 import org.apache.mina.api.IdleStatus;
 import org.apache.mina.api.IoHandler;
 import org.apache.mina.api.IoService;
@@ -18,21 +20,19 @@ import org.slf4j.LoggerFactory;
  */
 public class MessageServerHandler implements IoHandler {
 
-  private static final AttributeKey<Client> CLIENT_KEY = AttributeKey.createKey(Client.class, "Client");
   private static final Logger LOGGER = LoggerFactory.getLogger(MessageServerHandler.class);
+  private static final AttributeKey<Client> CLIENT_KEY = AttributeKey.createKey(Client.class, "Client");
 
   @Override
   public void sessionOpened(IoSession session) {
-    Client client = Client.create();
+    Client client = Client.create(session);
     session.setAttribute(CLIENT_KEY, client);
-    client.setSession(session);
-    LOGGER.info("Client[{}] connected. Session[{}], Address[{}].", client.getId(), session.getId(), session.getRemoteAddress());
   }
 
   @Override
   public void sessionClosed(IoSession session) {
     Client client = session.getAttribute(CLIENT_KEY);
-    LOGGER.info("Client[{}] disconnected. Session[{}], Address[{}].", client.getId(), session.getId(), session.getRemoteAddress());
+    client.close();
   }
 
   @Override
@@ -63,14 +63,24 @@ public class MessageServerHandler implements IoHandler {
   }
 
   @Override
-  public void exceptionCaught(IoSession session, Exception cause) {
-    if (cause instanceof MessageFormatException) {
-      MessageFormatException mfe = (MessageFormatException) cause;
-      session.write(mfe.getMessageObject().responseError().put(Message.KEY_ERROR_MESSAGE, mfe.getMessage()));
+  public void exceptionCaught(final IoSession session, Exception cause) {
+    if (cause instanceof ProtocolException) {
+      LOGGER.warn("ProtocolException caught, Session[" + session.getId() + "] is about to close.", cause);
+      Client client = session.getAttribute(CLIENT_KEY);
+      Message message = new Message();
+      message.put(Message.KEY_ERROR, "").put(Message.KEY_MESSAGE_ID, -1).put(Message.KEY_ERROR_MESSAGE, cause);
+      client.write(message);
+      timer.schedule(new TimerTask() {
+
+        @Override
+        public void run() {
+          session.close(true);
+        }
+      }, 3000);
     } else {
-      LOGGER.info("Exception caught, Session[" + session.getId() + "] is about to close.", cause);
+      LOGGER.warn("Exception caught, Session[" + session.getId() + "] is about to close.", cause);
       session.close(true);
     }
   }
-
+  private static final Timer timer = new Timer("Session Idler Timer", true);
 }

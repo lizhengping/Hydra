@@ -1,394 +1,394 @@
-2015-10-08 18:14:45.934 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message - fe
-2015-10-08 18:14:45.934 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message - fe
-2015-10-08 18:14:45.934 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message - fe
-2015-10-08 18:14:45.934 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message - fe
-2015-10-09 13:03:27.081 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:03:27.084 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:26) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:03:27.088 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:03:27.088 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:03:27.093 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:03:50.371 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:03:50.373 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:26) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:03:50.376 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:03:50.376 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:03:50.378 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:10.772 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:10.773 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:10.780 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:10.780 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:10.784 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:11.788 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:11.788 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:11.789 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:11.789 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:11.789 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:12.794 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:12.795 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:12.795 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:12.795 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:12.796 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:13.800 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:13.801 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:13.801 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:13.801 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:13.802 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:14.805 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:14.805 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:14.806 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:14.806 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:14.807 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:15.812 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:15.812 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:15.813 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:15.813 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:15.813 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:16.817 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:16.818 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:16.819 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:16.819 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:16.819 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:17.824 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:17.824 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:17.825 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:17.825 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:17.825 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:18.829 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:18.829 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:18.830 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:18.830 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:18.830 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:19.834 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:19.834 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:19.835 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:19.835 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:19.835 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:20.840 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:20.840 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:20.840 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:20.840 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:20.841 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:21.841 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:21.841 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:21.842 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:21.842 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:21.842 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:22.845 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:22.846 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:22.847 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:22.848 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:22.848 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:23.853 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:23.853 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:23.853 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:23.853 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:23.854 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:24.855 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:24.856 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:24.856 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:24.856 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:24.856 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:25.861 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:25.862 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:25.864 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:25.864 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:25.864 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:26.867 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:26.868 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:26.869 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:26.869 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:26.869 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:27.874 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:27.875 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:27.875 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:27.875 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:27.875 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:28.876 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:28.877 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:28.878 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:28.878 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:28.879 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:29.883 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:29.884 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:29.885 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:29.885 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:29.886 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:30.890 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:30.890 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:30.891 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:30.892 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:30.892 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:31.893 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:31.894 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:31.896 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:31.897 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:31.897 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:32.897 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:32.898 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:32.899 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:32.900 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:32.900 [main] TRACE com.labatlas.atlas.tests.TEST - steps
-2015-10-09 13:04:33.901 [main] ERROR com.labatlas.atlas.tests.TEST - this is a message
-2015-10-09 13:04:33.902 [main] DEBUG com.labatlas.atlas.tests.TEST - a bug dispared.!!!
-
-oh no !!
-
-
-java.lang.RuntimeException: java.io.IOError: java.io.IOException: no
-	at com.labatlas.atlas.tests.TEST.main(TEST.java:27) [classes/:?]
-Caused by: java.io.IOError: java.io.IOException: no
-	... 1 more
-Caused by: java.io.IOException: no
-	... 1 more
-2015-10-09 13:04:33.903 [main] INFO  com.labatlas.atlas.tests.TEST - this a infomation is.
-2015-10-09 13:04:33.903 [main] WARN  com.labatlas.atlas.tests.TEST - not good
-2015-10-09 13:04:33.903 [main] TRACE com.labatlas.atlas.tests.TEST - steps
+2015-10-17 11:46:24.402 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:46:24.419 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 11:46:24.419 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 11:46:24.421 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 11:46:24.423 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 6
+2015-10-17 11:46:24.426 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@124c75bf'
+2015-10-17 11:46:24.426 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x00000006) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64752]
+2015-10-17 11:46:24.427 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:46:24.427 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:24.428 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 11:46:24.428 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 11:46:24.432 [SelectorWorker Server-I/O-2] INFO  com.labatlas.atlas.Client - Client[6] connected. Session[6], Address[/127.0.0.1:64752].
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000006: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64752 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000006: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64752 => /127.0.0.1:20001)
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000006: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64752 => /127.0.0.1:20001)
+2015-10-17 11:46:24.433 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000006: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64752 => /127.0.0.1:20001) done !
+2015-10-17 11:46:24.434 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 11:46:24.435 [SelectorWorker Server-I/O-2] INFO  com.labatlas.atlas.Client - Client[6, null] disconnected. Session[6], Address[/127.0.0.1:64752].
+2015-10-17 11:46:24.435 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:46:24.435 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:26.856 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:46:26.856 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 11:46:26.856 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 11:46:26.856 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 11:46:26.856 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 7
+2015-10-17 11:46:26.856 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@2c2997e3'
+2015-10-17 11:46:26.857 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x00000007) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64753]
+2015-10-17 11:46:26.857 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:46:26.857 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:26.857 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 11:46:26.857 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 11:46:26.860 [SelectorWorker Server-I/O-3] INFO  com.labatlas.atlas.Client - Client[7] connected. Session[7], Address[/127.0.0.1:64753].
+2015-10-17 11:46:26.860 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:26.868 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:46:26.868 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000007: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64753 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:46:26.868 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000007: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64753 => /127.0.0.1:20001)
+2015-10-17 11:46:26.868 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 11:46:26.868 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 11:46:26.868 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000007: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64753 => /127.0.0.1:20001)
+2015-10-17 11:46:26.869 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000007: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64753 => /127.0.0.1:20001) done !
+2015-10-17 11:46:26.869 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 11:46:26.869 [SelectorWorker Server-I/O-3] INFO  com.labatlas.atlas.Client - Client[7, null] disconnected. Session[7], Address[/127.0.0.1:64753].
+2015-10-17 11:46:26.869 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:46:26.869 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:50.878 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:46:50.878 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 11:46:50.878 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 11:46:50.878 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 11:46:50.878 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 8
+2015-10-17 11:46:50.878 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@57971f20'
+2015-10-17 11:46:50.879 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x00000008) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64758]
+2015-10-17 11:46:50.879 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:46:50.879 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:50.880 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 11:46:50.880 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 11:46:50.883 [SelectorWorker Server-I/O-4] INFO  com.labatlas.atlas.Client - Client[8] connected. Session[8], Address[/127.0.0.1:64758].
+2015-10-17 11:46:50.883 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:46:50.883 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:46:50.883 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:46:50.883 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:46:50.883 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 52 bytes
+2015-10-17 11:46:50.884 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=52 cap=65536]' received event for session (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:46:50.886 [SelectorWorker Server-I/O-4] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[8，null].
+2015-10-17 11:46:50.886 [SelectorWorker Server-I/O-4] DEBUG com.labatlas.atlas.Client - Client[8, null] deals with message: Message {Request=Connection, MessageID=0, Name=Monitor[Hwaipy]}
+2015-10-17 11:46:50.887 [SelectorWorker Server-I/O-4] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.ConnectionCommand@54f699ad] is found for request in Client[8, null]: Message {Request=Connection, MessageID=0, Name=Monitor[Hwaipy]}
+2015-10-17 11:46:50.887 [SelectorWorker Server-I/O-4] TRACE com.labatlas.atlas.Client - Client[8, Monitor[Hwaipy]] registed. There are currently 1 clients.
+2015-10-17 11:46:50.887 [SelectorWorker Server-I/O-4] INFO  com.labatlas.atlas.Client - Client[8] registered as [Monitor[Hwaipy]].
+2015-10-17 11:46:50.887 [SelectorWorker Server-I/O-4] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[8, Monitor[Hwaipy]]: Message {Response=Connection, ClientID=8, MessageID=0}
+2015-10-17 11:46:50.887 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=Connection, ClientID=8, MessageID=0} to session (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:46:50.887 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=8, MessageID=0}', Encoded message : 'Message {Response=Connection, ClientID=8, MessageID=0}']' writing event for session (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:46:50.900 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=8, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']' position : 0
+2015-10-17 11:46:50.901 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=8, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']
+2015-10-17 11:46:50.901 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 42 bytes to (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:46:50.901 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=Connection, ClientID=8, MessageID=0}' sent event for session (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:46:50.901 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:46:50.901 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001)
+2015-10-17 11:47:03.161 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000008: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64758 => /127.0.0.1:20001) done !
+2015-10-17 11:47:03.162 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 11:47:03.162 [SelectorWorker Server-I/O-4] TRACE com.labatlas.atlas.Client - Client[8, Monitor[Hwaipy]] unregisted. There are currently 0 clients.
+2015-10-17 11:47:03.162 [SelectorWorker Server-I/O-4] INFO  com.labatlas.atlas.Client - Client[8, Monitor[Hwaipy]] disconnected. Session[8], Address[/127.0.0.1:64758].
+2015-10-17 11:47:03.162 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:47:03.162 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 9
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@1a073ba'
+2015-10-17 11:52:54.071 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x00000009) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64872]
+2015-10-17 11:52:54.072 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 11:52:54.072 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 11:52:54.072 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:52:54.072 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:52:54.074 [SelectorWorker Server-I/O-0] INFO  com.labatlas.atlas.Client - Client[9] connected. Session[9], Address[/127.0.0.1:64872].
+2015-10-17 11:52:54.074 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:52:54.074 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:52:54.074 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:52:54.074 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 54 bytes
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=54 cap=65536]' received event for session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[9，null].
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - Client[9, null] deals with message: Message {Request=Connection, MessageID=0, Name=VirtualPowerMeter}
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.ConnectionCommand@54f699ad] is found for request in Client[9, null]: Message {Request=Connection, MessageID=0, Name=VirtualPowerMeter}
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] TRACE com.labatlas.atlas.Client - Client[9, VirtualPowerMeter] registed. There are currently 1 clients.
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] INFO  com.labatlas.atlas.Client - Client[9] registered as [VirtualPowerMeter].
+2015-10-17 11:52:54.075 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[9, VirtualPowerMeter]: Message {Response=Connection, ClientID=9, MessageID=0}
+2015-10-17 11:52:54.076 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=Connection, ClientID=9, MessageID=0} to session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.076 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=9, MessageID=0}', Encoded message : 'Message {Response=Connection, ClientID=9, MessageID=0}']' writing event for session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.079 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=9, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']' position : 0
+2015-10-17 11:52:54.080 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=9, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']
+2015-10-17 11:52:54.080 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 42 bytes to (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.080 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=Connection, ClientID=9, MessageID=0}' sent event for session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.080 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:52:54.080 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:52:54.080 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 60 bytes
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=60 cap=65536]' received event for session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[9，VirtualPowerMeter].
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - Client[9, VirtualPowerMeter] deals with message: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.commands.ServiceRegistrationCommand@60cfdf4c] is found for request in Client[9, VirtualPowerMeter]: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] TRACE com.labatlas.atlas.services.ServiceManager - Client[9, VirtualPowerMeter] registered for service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-10-17 11:52:54.081 [SelectorWorker Server-I/O-0] INFO  com.labatlas.atlas.Client - Client[9, VirtualPowerMeter] registered for service[PowerMeter].
+2015-10-17 11:52:54.082 [SelectorWorker Server-I/O-0] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[9, VirtualPowerMeter]: Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}
+2015-10-17 11:52:54.082 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1} to session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.082 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}']' writing event for session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.083 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']' position : 0
+2015-10-17 11:52:54.084 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']
+2015-10-17 11:52:54.084 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 70 bytes to (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.084 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}' sent event for session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:54.084 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:52:54.084 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:52:55.955 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:52:55.955 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:52:55.955 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:55.955 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 11:52:55.955 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 11:52:55.956 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001)
+2015-10-17 11:52:55.956 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000009: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64872 => /127.0.0.1:20001) done !
+2015-10-17 11:52:55.956 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 11:52:55.956 [SelectorWorker Server-I/O-0] TRACE com.labatlas.atlas.Client - Client[9, VirtualPowerMeter] unregisted. There are currently 0 clients.
+2015-10-17 11:52:55.956 [SelectorWorker Server-I/O-0] TRACE com.labatlas.atlas.services.ServiceManager - Client[9, VirtualPowerMeter] unregistered from service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-10-17 11:52:55.957 [SelectorWorker Server-I/O-0] INFO  com.labatlas.atlas.Client - Client[9, VirtualPowerMeter] disconnected. Session[9], Address[/127.0.0.1:64872].
+2015-10-17 11:52:55.957 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:52:55.957 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:53:08.206 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:53:08.206 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 11:53:08.206 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 11:53:08.206 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 11:53:08.206 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 10
+2015-10-17 11:53:08.206 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@70301fbc'
+2015-10-17 11:53:08.207 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x0000000A) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64878]
+2015-10-17 11:53:08.207 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:53:08.207 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:53:08.207 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 11:53:08.207 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[10] connected. Session[10], Address[/127.0.0.1:64878].
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 54 bytes
+2015-10-17 11:53:08.210 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=54 cap=65536]' received event for session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.211 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[10，null].
+2015-10-17 11:53:08.211 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Client[10, null] deals with message: Message {Request=Connection, MessageID=0, Name=VirtualPowerMeter}
+2015-10-17 11:53:08.211 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.ConnectionCommand@54f699ad] is found for request in Client[10, null]: Message {Request=Connection, MessageID=0, Name=VirtualPowerMeter}
+2015-10-17 11:53:08.211 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.Client - Client[10, VirtualPowerMeter] registed. There are currently 1 clients.
+2015-10-17 11:53:08.211 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[10] registered as [VirtualPowerMeter].
+2015-10-17 11:53:08.212 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[10, VirtualPowerMeter]: Message {Response=Connection, ClientID=10, MessageID=0}
+2015-10-17 11:53:08.212 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=Connection, ClientID=10, MessageID=0} to session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.212 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=10, MessageID=0}', Encoded message : 'Message {Response=Connection, ClientID=10, MessageID=0}']' writing event for session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.214 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=10, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']' position : 0
+2015-10-17 11:53:08.214 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=10, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']
+2015-10-17 11:53:08.215 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 42 bytes to (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.215 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=Connection, ClientID=10, MessageID=0}' sent event for session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.215 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:53:08.215 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:53:08.216 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:53:08.216 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:53:08.216 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.216 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 60 bytes
+2015-10-17 11:53:08.216 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=60 cap=65536]' received event for session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[10，VirtualPowerMeter].
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Client[10, VirtualPowerMeter] deals with message: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.commands.ServiceRegistrationCommand@60cfdf4c] is found for request in Client[10, VirtualPowerMeter]: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.services.ServiceManager - Client[10, VirtualPowerMeter] registered for service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[10, VirtualPowerMeter] registered for service[PowerMeter].
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[10, VirtualPowerMeter]: Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1} to session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.217 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}']' writing event for session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.219 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']' position : 0
+2015-10-17 11:53:08.219 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']
+2015-10-17 11:53:08.219 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 70 bytes to (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.220 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}' sent event for session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:08.220 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:53:08.220 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:53:09.453 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:53:09.453 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:53:09.453 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:09.453 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 11:53:09.453 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001)
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x0000000A: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64878 => /127.0.0.1:20001) done !
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.Client - Client[10, VirtualPowerMeter] unregisted. There are currently 0 clients.
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.services.ServiceManager - Client[10, VirtualPowerMeter] unregistered from service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[10, VirtualPowerMeter] disconnected. Session[10], Address[/127.0.0.1:64878].
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:53:09.454 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:55:07.021 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:55:07.021 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 11:55:07.021 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 11:55:07.021 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 11:55:07.021 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 11
+2015-10-17 11:55:07.021 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@10c608d6'
+2015-10-17 11:55:07.022 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x0000000B) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64887]
+2015-10-17 11:55:07.022 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:55:07.022 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:55:07.022 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 11:55:07.023 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 11:55:07.027 [SelectorWorker Server-I/O-2] INFO  com.labatlas.atlas.Client - Client[11] connected. Session[11], Address[/127.0.0.1:64887].
+2015-10-17 11:55:07.027 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000B: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64887 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000B: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64887 => /127.0.0.1:20001)
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x0000000B: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64887 => /127.0.0.1:20001)
+2015-10-17 11:55:07.042 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x0000000B: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64887 => /127.0.0.1:20001) done !
+2015-10-17 11:55:07.043 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 11:55:07.043 [SelectorWorker Server-I/O-2] INFO  com.labatlas.atlas.Client - Client[11, null] disconnected. Session[11], Address[/127.0.0.1:64887].
+2015-10-17 11:55:07.043 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 11:55:07.044 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 12:00:36.613 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 12:00:36.613 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-10-17 12:00:36.613 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-10-17 12:00:36.613 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-10-17 12:00:36.613 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 12
+2015-10-17 12:00:36.614 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@7fc77bf1'
+2015-10-17 12:00:36.614 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x0000000C) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:64898]
+2015-10-17 12:00:36.614 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 12:00:36.614 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 12:00:36.614 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-10-17 12:00:36.615 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-10-17 12:00:36.617 [SelectorWorker Server-I/O-3] INFO  com.labatlas.atlas.Client - Client[12] connected. Session[12], Address[/127.0.0.1:64898].
+2015-10-17 12:00:36.617 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 12:00:36.620 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 12:00:36.620 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 12:00:36.620 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.620 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 54 bytes
+2015-10-17 12:00:36.620 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=54 cap=65536]' received event for session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[12，null].
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - Client[12, null] deals with message: Message {Request=Connection, Name=VirtualPowerMeter, MessageID=0}
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.ConnectionCommand@54f699ad] is found for request in Client[12, null]: Message {Request=Connection, Name=VirtualPowerMeter, MessageID=0}
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] TRACE com.labatlas.atlas.Client - Client[12, VirtualPowerMeter] registed. There are currently 1 clients.
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] INFO  com.labatlas.atlas.Client - Client[12] registered as [VirtualPowerMeter].
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[12, VirtualPowerMeter]: Message {Response=Connection, ClientID=12, MessageID=0}
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=Connection, ClientID=12, MessageID=0} to session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.621 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=12, MessageID=0}', Encoded message : 'Message {Response=Connection, ClientID=12, MessageID=0}']' writing event for session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.623 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=12, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']' position : 0
+2015-10-17 12:00:36.623 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=12, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']
+2015-10-17 12:00:36.624 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 42 bytes to (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.625 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=Connection, ClientID=12, MessageID=0}' sent event for session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.628 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 12:00:36.628 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 12:00:36.633 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 12:00:36.634 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 12:00:36.634 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.634 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 60 bytes
+2015-10-17 12:00:36.634 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=60 cap=65536]' received event for session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[12，VirtualPowerMeter].
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - Client[12, VirtualPowerMeter] deals with message: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.commands.ServiceRegistrationCommand@60cfdf4c] is found for request in Client[12, VirtualPowerMeter]: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] TRACE com.labatlas.atlas.services.ServiceManager - Client[12, VirtualPowerMeter] registered for service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] INFO  com.labatlas.atlas.Client - Client[12, VirtualPowerMeter] registered for service[PowerMeter].
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[12, VirtualPowerMeter]: Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1} to session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.635 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}']' writing event for session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.637 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']' position : 0
+2015-10-17 12:00:36.637 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']
+2015-10-17 12:00:36.637 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 70 bytes to (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.637 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}' sent event for session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:36.638 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 12:00:36.638 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001)
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x0000000C: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:64898 => /127.0.0.1:20001) done !
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-10-17 12:00:39.371 [SelectorWorker Server-I/O-3] TRACE com.labatlas.atlas.Client - Client[12, VirtualPowerMeter] unregisted. There are currently 0 clients.
+2015-10-17 12:00:39.372 [SelectorWorker Server-I/O-3] TRACE com.labatlas.atlas.services.ServiceManager - Client[12, VirtualPowerMeter] unregistered from service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-10-17 12:00:39.372 [SelectorWorker Server-I/O-3] INFO  com.labatlas.atlas.Client - Client[12, VirtualPowerMeter] disconnected. Session[12], Address[/127.0.0.1:64898].
+2015-10-17 12:00:39.372 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-10-17 12:00:39.372 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.841 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - open a selector
+2015-11-10 21:52:06.851 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - starting worker thread
+2015-11-10 21:52:06.851 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.852 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - open a selector
+2015-11-10 21:52:06.853 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - starting worker thread
+2015-11-10 21:52:06.854 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - open a selector
+2015-11-10 21:52:06.855 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - starting worker thread
+2015-11-10 21:52:06.855 [SelectorWorker Server-I/O-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.856 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - open a selector
+2015-11-10 21:52:06.856 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - starting worker thread
+2015-11-10 21:52:06.858 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.859 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - open a selector
+2015-11-10 21:52:06.859 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - starting worker thread
+2015-11-10 21:52:06.860 [SelectorWorker Server-I/O-2] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.861 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - open a selector
+2015-11-10 21:52:06.862 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - starting worker thread
+2015-11-10 21:52:06.863 [SelectorWorker Server-I/O-3] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.863 [SelectorWorker Server-I/O-4] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:06.887 [main] INFO  org.apache.mina.transport.nio.NioTcpServer - binding address 0.0.0.0/0.0.0.0:20001
+2015-11-10 21:52:06.914 [main] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : org.apache.mina.transport.nio.NioTcpServer@33f88ab for accept : true, connect: false, read : false, write : false, channel : sun.nio.ch.ServerSocketChannelImpl[/0:0:0:0:0:0:0:0:20001]
+2015-11-10 21:52:06.918 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-11-10 21:52:06.919 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:18.525 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-11-10 21:52:18.526 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - acceptable new client
+2015-11-10 21:52:18.526 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - new client accepted
+2015-11-10 21:52:18.530 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioTcpServer - create session
+2015-11-10 21:52:18.537 [SelectorWorker accept-0] DEBUG org.apache.mina.session.AbstractIoSession - Created new session with id : 0
+2015-11-10 21:52:18.660 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.tcp.ProxyTcpSessionConfig - set traffic class '0' for session 'org.apache.mina.transport.tcp.ProxyTcpSessionConfig@1d441a87'
+2015-11-10 21:52:18.661 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - registering : (0x00000000) Session disconnected ... for accept : false, connect: false, read : true, write : false, channel : java.nio.channels.SocketChannel[connected local=/127.0.0.1:20001 remote=/127.0.0.1:58046]
+2015-11-10 21:52:18.662 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 0 events
+2015-11-10 21:52:18.662 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-11-10 21:52:18.662 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing session open event
+2015-11-10 21:52:18.663 [SelectorWorker accept-0] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:18.690 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[0] connected. Session[0], Address[/127.0.0.1:58046].
+2015-11-10 21:52:18.691 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:18.691 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-11-10 21:52:18.692 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-11-10 21:52:18.693 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:18.696 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 54 bytes
+2015-11-10 21:52:18.696 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=54 cap=65536]' received event for session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:18.779 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[0，null].
+2015-11-10 21:52:18.780 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Client[0, null] deals with message: Message {Request=Connection, Name=VirtualPowerMeter, MessageID=0}
+2015-11-10 21:52:18.781 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.ConnectionCommand@58ba98ea] is found for request in Client[0, null]: Message {Request=Connection, Name=VirtualPowerMeter, MessageID=0}
+2015-11-10 21:52:18.781 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.Client - Client[0, VirtualPowerMeter] registed. There are currently 1 clients.
+2015-11-10 21:52:18.782 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[0] registered as [VirtualPowerMeter].
+2015-11-10 21:52:18.782 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[0, VirtualPowerMeter]: Message {Response=Connection, ClientID=0, MessageID=0}
+2015-11-10 21:52:18.782 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=Connection, ClientID=0, MessageID=0} to session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:18.784 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=0, MessageID=0}', Encoded message : 'Message {Response=Connection, ClientID=0, MessageID=0}']' writing event for session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.305 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=0, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']' position : 0
+2015-11-10 21:52:19.305 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=Connection, ClientID=0, MessageID=0}', Encoded message : 'ByteBuffer[len=42,bytes='0x83 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xAA 0x43 0x6F 0x6E 0x6E 0x65']']
+2015-11-10 21:52:19.311 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 42 bytes to (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.314 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=Connection, ClientID=0, MessageID=0}' sent event for session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.315 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-11-10 21:52:19.316 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:19.317 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-11-10 21:52:19.317 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-11-10 21:52:19.318 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.319 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - read 60 bytes
+2015-11-10 21:52:19.319 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'java.nio.DirectByteBuffer[pos=0 lim=60 cap=65536]' received event for session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.321 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - 1 messages received in Client[0，VirtualPowerMeter].
+2015-11-10 21:52:19.322 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Client[0, VirtualPowerMeter] deals with message: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-11-10 21:52:19.322 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - Command [com.labatlas.atlas.commands.ServiceRegistrationCommand@1ee68ed5] is found for request in Client[0, VirtualPowerMeter]: Message {Request=ServiceRegistration, Service=[PowerMeter], MessageID=1}
+2015-11-10 21:52:19.325 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.services.ServiceManager - Client[0, VirtualPowerMeter] registered for service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-11-10 21:52:19.325 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[0, VirtualPowerMeter] registered for service[PowerMeter].
+2015-11-10 21:52:19.326 [SelectorWorker Server-I/O-1] DEBUG com.labatlas.atlas.Client - A message is about to sent to Client[0, VirtualPowerMeter]: Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}
+2015-11-10 21:52:19.326 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - writing message Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1} to session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.327 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}']' writing event for session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.331 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - calling next filter for writing for message 'WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']' position : 0
+2015-11-10 21:52:19.331 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - enqueueWriteRequest WriteRequest[No future, Original message : 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}', Encoded message : 'ByteBuffer[len=70,bytes='0x84 0xA8 0x52 0x65 0x73 0x70 0x6F 0x6E 0x73 0x65 0xB3 0x53 0x65 0x72 0x76 0x69']']
+2015-11-10 21:52:19.331 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.AbstractNioSession - wrote 70 bytes to (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.332 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing message 'Message {Response=ServiceRegistration, Status=Ok, Service=PowerMeter, MessageID=1}' sent event for session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:19.333 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-11-10 21:52:19.333 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...
+2015-11-10 21:52:25.430 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - ... done selecting : 1 events
+2015-11-10 21:52:25.430 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001) ready for accept=false, connect=false, read=true, write=false
+2015-11-10 21:52:25.430 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - readable session : (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:25.431 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - read -1 bytes
+2015-11-10 21:52:25.431 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioTcpSession - session closed by the remote peer
+2015-11-10 21:52:25.432 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001)
+2015-11-10 21:52:25.432 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - unregistering : (0x00000000: org.apache.mina.transport.nio.NioTcpServer, server, /127.0.0.1:58046 => /127.0.0.1:20001) done !
+2015-11-10 21:52:25.433 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.session.AbstractIoSession - processing session closed event
+2015-11-10 21:52:25.433 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.Client - Client[0, VirtualPowerMeter] unregisted. There are currently 0 clients.
+2015-11-10 21:52:25.433 [SelectorWorker Server-I/O-1] TRACE com.labatlas.atlas.services.ServiceManager - Client[0, VirtualPowerMeter] unregistered from service[PowerMeter]. Now service[PowerMeter] has -1 instances.
+2015-11-10 21:52:25.434 [SelectorWorker Server-I/O-1] INFO  com.labatlas.atlas.Client - Client[0, VirtualPowerMeter] disconnected. Session[0], Address[/127.0.0.1:58046].
+2015-11-10 21:52:25.434 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - remove
+2015-11-10 21:52:25.434 [SelectorWorker Server-I/O-1] DEBUG org.apache.mina.transport.nio.NioSelectorLoop - selecting...

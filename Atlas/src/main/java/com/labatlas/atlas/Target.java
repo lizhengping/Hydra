@@ -51,7 +51,7 @@ public class Target {
     } else if (targetO instanceof Map) {
       return create((Map) targetO);
     } else {
-      throw new MessageFormatException("Target not recognized.", message);
+      throw new ProtocolException("Target not recognized.", message);
     }
   }
 

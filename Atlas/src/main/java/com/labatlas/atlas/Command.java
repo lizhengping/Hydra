@@ -20,7 +20,7 @@ public abstract class Command {
     if (client.initialed()) {
       executeCommand(message, client);
     } else {
-      throw new MessageFormatException("Command should be \"Connection\" for first Message.", message);
+      throw new ProtocolException("Command should be \"Connection\" for first Message.", message);
     }
   }
 

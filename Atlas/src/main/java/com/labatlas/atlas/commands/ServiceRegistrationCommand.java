@@ -25,7 +25,7 @@ public class ServiceRegistrationCommand extends Command {
       Message response = message.response()
               .put(KEY_SERVICE, servicename)
               .put(Message.KEY_STATUS, Message.VALUE_STATUS_OK);
-      client.response(response);
+      client.write(response);
     }
   }
 

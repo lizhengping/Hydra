@@ -1,7 +1,7 @@
 package com.labatlas.atlas.test.dcclient;
 
 import com.labatlas.atlas.Message;
-import com.labatlas.atlas.MessageFormatException;
+import com.labatlas.atlas.ProtocolException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public class MessageClientHandler implements IoHandler {
 
   @Override
   public void exceptionCaught(IoSession session, Exception cause) {
-    if (cause instanceof MessageFormatException) {
+    if (cause instanceof ProtocolException) {
       System.out.println(cause);
     } else {
       cause.printStackTrace(System.out);
@@ -101,7 +101,7 @@ public class MessageClientHandler implements IoHandler {
 
   private Message newRequest(String cmd) {
     Message message = new Message();
-    message.put(Message.KEY_ID, messageIndex).put(Message.KEY_REQUEST, cmd);
+    message.put(Message.KEY_MESSAGE_ID, messageIndex).put(Message.KEY_REQUEST, cmd);
     messageIndex++;
     return message;
   }

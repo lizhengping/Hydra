@@ -9,6 +9,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.apache.mina.api.IoSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
@@ -16,109 +18,106 @@ import org.apache.mina.api.IoSession;
  */
 public class Client {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(Client.class);
   public static final String KEY_IDENTITY_NAME = "Name";
   private final int id;
   private String name;
   private Map identity;
   private IoSession session;
   private ConcurrentHashMap<String, Service> services = new ConcurrentHashMap<>();
-  private ConcurrentHashMap<WaitingRequestKey, Message> waitingRequests = new ConcurrentHashMap<>();
+//  private ConcurrentHashMap<WaitingRequestKey, Message> waitingRequests = new ConcurrentHashMap<>();
 
-  private Client(int id) {
+  private Client(int id, IoSession session) {
     this.id = id;
-  }
-
-  public void setSession(IoSession session) {
     this.session = session;
   }
 
-  public void response(Message message) {
+  public void write(Message message) {
+    LOGGER.debug("A message is about to sent to Client[{}, {}]: {}", getId(), getName(), message);
     session.write(message);
-  }
-
-  public void feedRequest(Message message) throws MessageFormatException {
-    Target target = message.getTarget();
-    if (target.isLocal()) {
-      Command command = message.getCommand();
-      if (command == null) {
-        throw new MessageFormatException("Command \"" + message.getCommandString() + "\" not assinged.", message);
-      } else {
-        command.execute(message, this);
-      }
-    } else {
-      if (initialed()) {
-        Collection<Client> remoteClients = target.getRemoteClients();
-        if (remoteClients.isEmpty()) {
-          throw new MessageFormatException("Target not exists.", message);
-        } else {
-          for (Client remoteClient : remoteClients) {
-            Message messageCopy = message.copy().put(Message.KEY_FROM, identity);
-            remoteClient.dealRequest(messageCopy);
-          }
-        }
-      } else {
-        throw new MessageFormatException("Connection need to be initialed first using \"Connection\" command.", message);
-      }
-    }
-  }
-
-  public void feedResponse(Message message) throws MessageFormatException {
-    long responseID = message.getID();
-    Map toMap = message.get(Message.KEY_To, Map.class);
-    Object clientIDO = toMap.get(Message.KEY_CLIENT_ID);
-    if (clientIDO == null || !(clientIDO instanceof Integer)) {
-      throw new MessageFormatException("The response destination need to specified correctly.", message);
-    }
-    int clientID = (int) clientIDO;
-    WaitingRequestKey key = new WaitingRequestKey(clientID, responseID);
-    Message associatedRequest = waitingRequests.get(key);
-    if (associatedRequest == null) {
-      throw new MessageFormatException("Request associated to this response not exists.", message);
-    }
-    if (!message.isContinues()) {
-      waitingRequests.remove(key);
-    }
-    Client toClient = Client.getClient(clientID);
-    if (toClient != null) {
-      toClient.response(message);
-    }
   }
 
   public void feed(Collection<Message> messages) {
+    LOGGER.debug("{} messages received in Client[{}，{}].", messages.size(), getId(), getName());
     for (Message message : messages) {
-      try {
-        switch (message.getType()) {
-          case REQUEST:
-            feedRequest(message);
-            break;
-          case RESPONSE:
-            feedResponse(message);
-            break;
-          default:
-            throw new RuntimeException();
-        }
-      } catch (MessageFormatException ex) {
-        session.write(message.responseError().put(Message.KEY_ERROR_MESSAGE, ex.getMessage()));
+      LOGGER.debug("Client[{}, {}] deals with message: {}", getId(), getName(), message);
+      if (message.getTarget().isLocal()) {
+        feedMessageToLocal(message);
+      } else {
+        throw new UnsupportedOperationException();
       }
     }
   }
 
-  private void dealRequest(Message message) {
-    long messageID = message.getID();
-    int sourceID = (int) message.get(Message.KEY_FROM, Map.class).get(Message.KEY_CLIENT_ID);
-    WaitingRequestKey key = new WaitingRequestKey(sourceID, messageID);
-    if (waitingRequests.containsKey(key)) {
-      throw new MessageFormatException("Request ID " + message.getID() + " Duplicate.", message);
+  private void feedMessageToLocal(Message message) throws ProtocolException {
+    switch (message.getType()) {
+      case REQUEST:
+        Command command = message.getCommand();
+        if (command == null) {
+          throw new ProtocolException("Command \"" + message.getCommandString() + "\" not assinged.", message);
+        } else {
+          LOGGER.debug("Command [{}] is found for request in Client[{}, {}]: {}", command, getId(), getName(), message);
+          command.execute(message, this);
+        }
+        break;
+      case RESPONSE:
+        LOGGER.warn("The type of message is not acceptable in Client[{}, {}]: {}", getId(), getName(), message);
+        break;
+      default:
+        LOGGER.warn("The type of message is not acceptable in Client[{}, {}]: {}", getId(), getName(), message);
+        break;
     }
-    waitingRequests.put(key, message);
-    session.write(message);
+//      if (initialed()) {
+//        Collection<Client> remoteClients = target.getRemoteClients();
+//        if (remoteClients.isEmpty()) {
+//          throw new ProtocolException("Target not exists.", message);
+//        } else {
+//          for (Client remoteClient : remoteClients) {
+//            Message messageCopy = message.copy().put(Message.KEY_FROM, identity);
+//            remoteClient.dealRequest(messageCopy);
+//          }
+//        }
+//      } else {
+//        throw new ProtocolException("Connection need to be initialed first using \"Connection\" command.", message);
+//      }
   }
 
+//  private void feedResponse(Message message) throws ProtocolException {
+//    long responseID = message.getID();
+//    Map toMap = message.get(Message.KEY_To, Map.class);
+//    Object clientIDO = toMap.get(Message.KEY_CLIENT_ID);
+//    if (clientIDO == null || !(clientIDO instanceof Integer)) {
+//      throw new ProtocolException("The response destination need to specified correctly.", message);
+//    }
+//    int clientID = (int) clientIDO;
+//    WaitingRequestKey key = new WaitingRequestKey(clientID, responseID);
+//    Message associatedRequest = waitingRequests.get(key);
+//    if (associatedRequest == null) {
+//      throw new ProtocolException("Request associated to this response not exists.", message);
+//    }
+//    if (!message.isContinues()) {
+//      waitingRequests.remove(key);
+//    }
+//    Client toClient = Client.getClient(clientID);
+//    if (toClient != null) {
+//      toClient.response(message);
+//    }
+//  }
+//  private void dealRequest(Message message) {
+//    long messageID = message.getID();
+//    int sourceID = (int) message.get(Message.KEY_FROM, Map.class).get(Message.KEY_CLIENT_ID);
+//    WaitingRequestKey key = new WaitingRequestKey(sourceID, messageID);
+//    if (waitingRequests.containsKey(key)) {
+//      throw new ProtocolException("Request ID " + message.getID() + " Duplicate.", message);
+//    }
+//    waitingRequests.put(key, message);
+//    session.write(message);
+//  }
   public int getId() {
     return id;
   }
 
-  private String getName() {
+  public String getName() {
     return name;
   }
 
@@ -126,36 +125,60 @@ public class Client {
     return name != null;
   }
 
-  void init(String name) {
+  boolean init(String name) {
     if (initialed()) {
       throw new RuntimeException("Client Already Initialed.");
     }
     this.name = name;
-    HashMap<String, Object> map = new HashMap<>();
-    map.put(KEY_IDENTITY_NAME, name);
-    map.put(Message.KEY_CLIENT_ID, id);
-    identity = Collections.unmodifiableMap(map);
-    registerClient(this);
+    if (registerClient(this)) {
+      LOGGER.info("Client[{}] registered as [{}].", getId(), getName());
+      HashMap<String, Object> map = new HashMap<>();
+      map.put(KEY_IDENTITY_NAME, name);
+      map.put(Message.KEY_CLIENT_ID, id);
+      identity = Collections.unmodifiableMap(map);
+      return true;
+    } else {
+      this.name = null;
+      LOGGER.warn("Client[{}] failed in register as [{}]: name duplicated.", getId(), name);
+      return false;
+    }
   }
 
   public void registerService(String serviceName) {
     Service service = ServiceManager.getDefault().registerService(serviceName, this);
     this.services.putIfAbsent(serviceName, service);
+    LOGGER.info("Client[{}, {}] registered for service[{}].", getId(), getName(), serviceName);
   }
 
   private static AtomicInteger CLIENT_IDS = new AtomicInteger(0);
 
-  private static ConcurrentHashMap<Integer, Client> clientsByID = new ConcurrentHashMap<>();
-  private static ConcurrentHashMap<String, Client> clientsByName = new ConcurrentHashMap<>();
+  private static final HashMap<Integer, Client> clientsByID = new HashMap<>();
+  private static final HashMap<String, Client> clientsByName = new HashMap<>();
 
-  public static Client create() {
-    Client client = new Client(CLIENT_IDS.getAndIncrement());
+  public static Client create(IoSession session) {
+    Client client = new Client(CLIENT_IDS.getAndIncrement(), session);
+    LOGGER.info("Client[{}] connected. Session[{}], Address[{}].", client.getId(), session.getId(), session.getRemoteAddress());
     return client;
   }
 
-  private static void registerClient(Client client) {
-    clientsByID.put(client.getId(), client);
-    clientsByName.put(client.getName(), client);
+  private static boolean registerClient(Client client) {
+    synchronized (clientsByName) {
+      if (clientsByName.containsKey(client.getName())) {
+        return false;
+      }
+      clientsByID.put(client.getId(), client);
+      clientsByName.put(client.getName(), client);
+      LOGGER.trace("Client[{}, {}] registed. There are currently {} clients.", client.getId(), client.getName(), clientsByName.size());
+      return true;
+    }
+  }
+
+  private static void unregisterClient(Client client) {
+    synchronized (clientsByName) {
+      clientsByID.remove(client.getId());
+      clientsByName.remove(client.getName());
+      LOGGER.trace("Client[{}, {}] unregisted. There are currently {} clients.", client.getId(), client.getName(), clientsByName.size());
+    }
   }
 
   public static Client getClient(String clientName) {
@@ -166,31 +189,41 @@ public class Client {
     return clientsByID.get(clientId);
   }
 
-  private class WaitingRequestKey {
-
-    private final int sourceID;
-    private final long messageID;
-
-    public WaitingRequestKey(int sourceID, long messageID) {
-      this.sourceID = sourceID;
-      this.messageID = messageID;
+  public void close() {
+    if (initialed()) {
+      unregisterClient(this);
     }
-
-    @Override
-    public boolean equals(Object obj) {
-      if (obj == null || !(obj instanceof WaitingRequestKey)) {
-        return false;
-      }
-      WaitingRequestKey inst = (WaitingRequestKey) obj;
-      return inst.sourceID == sourceID && inst.messageID == messageID;
+    for (String serviceName : services.keySet()) {
+      ServiceManager.getDefault().unregisterService(serviceName, this);
     }
-
-    @Override
-    public int hashCode() {
-      int hash = 5;
-      hash = 43 * hash + this.sourceID;
-      hash = 43 * hash + (int) (this.messageID ^ (this.messageID >>> 32));
-      return hash;
-    }
+    LOGGER.info("Client[{}, {}] disconnected. Session[{}], Address[{}].", getId(), getName(), session.getId(), session.getRemoteAddress());
   }
+
+//  private class WaitingRequestKey {
+//
+//    private final int sourceID;
+//    private final long messageID;
+//
+//    public WaitingRequestKey(int sourceID, long messageID) {
+//      this.sourceID = sourceID;
+//      this.messageID = messageID;
+//    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//      if (obj == null || !(obj instanceof WaitingRequestKey)) {
+//        return false;
+//      }
+//      WaitingRequestKey inst = (WaitingRequestKey) obj;
+//      return inst.sourceID == sourceID && inst.messageID == messageID;
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//      int hash = 5;
+//      hash = 43 * hash + this.sourceID;
+//      hash = 43 * hash + (int) (this.messageID ^ (this.messageID >>> 32));
+//      return hash;
+//    }
+//  }
 }

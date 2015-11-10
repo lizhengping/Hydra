@@ -1,5 +1,5 @@
 __author__ = 'Hwaipy'
-__version__ = 'v1.20151009'
+__version__ = 'v1.1.20151009'
 
 import sys
 from PyQt5.QtWidgets import QTableWidget, QAction, QMainWindow, QAbstractItemView, QTableWidgetItem, QDesktopWidget, \
@@ -170,7 +170,6 @@ class MainFrame(QMainWindow):
                         file.tell(0)
                         self.records.clear()
                 except:
-                    print('e')
                     size = 0
                     if not file == None:
                         file.close()
@@ -221,27 +220,33 @@ class Records:
         if self.listener:
             self.listener(['renew', self.records, -1])
 
-
     def __appendRecord(self, record):
         self.records.append(record)
         if self.listener:
             self.listener(['add', self.records, self.records.__len__() - 1])
 
     def __updateRecord(self, line):
+        if self.records.__len__() == 0:
+            return
         record = self.records[-1]
         record.appendMessage(line)
         if self.listener:
             self.listener(['update', self.records, self.records.__len__() - 1])
 
     def __match(self, line):
-        split = re.split(' +', line, 6)
-        if split.__len__() == 7:
-            if (not self.logHeadPatternDate.match(split[0]) == None) \
-                    & (not self.logHeadPatternTime.match(split[1]) == None) \
-                    & (not self.logHeadPatternThread.match(split[2]) == None):
-                time = datetime.datetime.strptime(' '.join(split[:2]), '%Y-%m-%d %H:%M:%S.%f')
-                return Record(time, split[2][1:-1], split[3], split[4], split[6], line)
-        return None
+        split1 = re.split(' +', line, 2)
+        if (not split1.__len__() == 3) | (self.logHeadPatternDate.match(split1[0]) == None) \
+                | (self.logHeadPatternTime.match(split1[1]) == None) \
+                | (not split1[2][0] == '['):
+            return None
+        split2 = re.split('\\] +', split1[2][1:], 1)
+        if (not split2.__len__() == 2):
+            return None
+        split3 = re.split(' +', split2[1], 3)
+        if (not split3.__len__() == 4) | (not split3[2] == '-'):
+            return None
+        time = datetime.datetime.strptime(' '.join(split1[:2]), '%Y-%m-%d %H:%M:%S.%f')
+        return Record(time, split2[0], split3[0], split3[1], split3[3], line)
 
 
 class Record:
