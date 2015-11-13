@@ -169,7 +169,8 @@ class MainFrame(QMainWindow):
                     if newSize < size:
                         file.tell(0)
                         self.records.clear()
-                except:
+                except BaseException as e:
+                    print(e)
                     size = 0
                     if not file == None:
                         file.close()
@@ -235,7 +236,8 @@ class Records:
 
     def __match(self, line):
         split1 = re.split(' +', line, 2)
-        if (not split1.__len__() == 3) | (self.logHeadPatternDate.match(split1[0]) == None) \
+        if not len(split1) == 3: return None
+        if (self.logHeadPatternDate.match(split1[0]) == None) \
                 | (self.logHeadPatternTime.match(split1[1]) == None) \
                 | (not split1[2][0] == '['):
             return None

@@ -11,6 +11,6 @@ if __name__ == '__main__':
     session.sendMessageLater(
         Message.createRequest('Status', {Message.KEY_TARGET: 'LoopholeFree_PockelsCell_DCSupply_Alice_1'}))
 
-    session.
+#    session.
 
     time.sleep(1000)

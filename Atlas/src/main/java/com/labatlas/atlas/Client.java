@@ -44,7 +44,7 @@ public class Client {
       if (message.getTarget().isLocal()) {
         feedMessageToLocal(message);
       } else {
-        throw new UnsupportedOperationException();
+        feedMessageToRemote(message);
       }
     }
   }
@@ -67,6 +67,22 @@ public class Client {
         LOGGER.warn("The type of message is not acceptable in Client[{}, {}]: {}", getId(), getName(), message);
         break;
     }
+  }
+
+  private void feedMessageToRemote(Message message) throws ProtocolException {
+    Target target = message.getTarget();
+    Collection<Client> remoteClients = target.getRemoteClients();
+    message.put(Message.KEY_FROM, getName());
+    if (!target.isMultiTarget() && remoteClients.isEmpty()) {
+      Message responseError = message.responseError().put(Message.KEY_ERROR_MESSAGE, "Target no exists.");
+      LOGGER.debug("The target of message does not exist in Client[{}, {}]: {}", getId(), getName(), message);
+      write(responseError);
+    } else {
+      for (Client remoteClient : remoteClients) {
+        remoteClient.write(message);
+      }
+    }
+  }
 //      if (initialed()) {
 //        Collection<Client> remoteClients = target.getRemoteClients();
 //        if (remoteClients.isEmpty()) {
@@ -80,7 +96,6 @@ public class Client {
 //      } else {
 //        throw new ProtocolException("Connection need to be initialed first using \"Connection\" command.", message);
 //      }
-  }
 
 //  private void feedResponse(Message message) throws ProtocolException {
 //    long responseID = message.getID();

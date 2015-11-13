@@ -1,0 +1,64 @@
+2015-11-11 15:56:23.729 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228582725, now = 1447228583729, delta = 1004
+2015-11-11 15:56:23.729 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3382 to index 3383
+2015-11-11 15:56:23.730 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3382
+2015-11-11 15:56:23.731 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:24.735 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228583729, now = 1447228584735, delta = 1006
+2015-11-11 15:56:24.735 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3383 to index 3384
+2015-11-11 15:56:24.735 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3383
+2015-11-11 15:56:24.735 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:25.739 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228584735, now = 1447228585738, delta = 1003
+2015-11-11 15:56:25.739 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3384 to index 3385
+2015-11-11 15:56:25.739 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3384
+2015-11-11 15:56:25.739 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:26.744 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228585738, now = 1447228586744, delta = 1006
+2015-11-11 15:56:26.745 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3385 to index 3386
+2015-11-11 15:56:26.745 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3385
+2015-11-11 15:56:26.745 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:27.748 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228586744, now = 1447228587748, delta = 1004
+2015-11-11 15:56:27.748 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3386 to index 3387
+2015-11-11 15:56:27.748 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3386
+2015-11-11 15:56:27.749 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:28.752 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228587748, now = 1447228588752, delta = 1004
+2015-11-11 15:56:28.752 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3387 to index 3388
+2015-11-11 15:56:28.752 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3387
+2015-11-11 15:56:28.752 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:29.758 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228588752, now = 1447228589758, delta = 1006
+2015-11-11 15:56:29.758 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3388 to index 3389
+2015-11-11 15:56:29.759 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3388
+2015-11-11 15:56:29.759 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:30.760 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228589758, now = 1447228590760, delta = 1002
+2015-11-11 15:56:30.761 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3389 to index 3390
+2015-11-11 15:56:30.761 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3389
+2015-11-11 15:56:30.761 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:31.763 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228590760, now = 1447228591763, delta = 1003
+2015-11-11 15:56:31.763 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3390 to index 3391
+2015-11-11 15:56:31.763 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3390
+2015-11-11 15:56:31.764 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:32.769 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228591763, now = 1447228592769, delta = 1006
+2015-11-11 15:56:32.769 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3391 to index 3392
+2015-11-11 15:56:32.769 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3391
+2015-11-11 15:56:32.769 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:40.088 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228599084, now = 1447228600087, delta = 1003
+2015-11-11 15:56:40.088 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3399 to index 3400
+2015-11-11 15:56:40.088 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3399
+2015-11-11 15:56:40.090 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:41.095 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228600087, now = 1447228601095, delta = 1008
+2015-11-11 15:56:41.095 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3400 to index 3401
+2015-11-11 15:56:41.095 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3400
+2015-11-11 15:56:41.095 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:42.097 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228601095, now = 1447228602097, delta = 1002
+2015-11-11 15:56:42.098 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3401 to index 3402
+2015-11-11 15:56:42.098 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3401
+2015-11-11 15:56:42.098 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:43.102 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228602097, now = 1447228603102, delta = 1005
+2015-11-11 15:56:43.102 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3402 to index 3403
+2015-11-11 15:56:43.102 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3402
+2015-11-11 15:56:43.102 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:44.106 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228603102, now = 1447228604106, delta = 1004
+2015-11-11 15:56:44.106 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3403 to index 3404
+2015-11-11 15:56:44.107 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3403
+2015-11-11 15:56:44.107 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
+2015-11-11 15:56:45.110 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - checking idle time, last = 1447228604106, now = 1447228605110, delta = 1004
+2015-11-11 15:56:45.111 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - scaning from index 3404 to index 3405
+2015-11-11 15:56:45.111 [IdleChecker] TRACE org.apache.mina.service.idlechecker.IndexedIdleChecker - scanning index 3404
+2015-11-11 15:56:45.111 [IdleChecker] DEBUG org.apache.mina.service.idlechecker.IndexedIdleChecker - detected 0 idleing sessions
