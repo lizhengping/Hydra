@@ -31,18 +31,13 @@ class Client:
 
     def startSession(self):
         self.session = Session(self.name, self.messagePort, self.broadcastPort, self.commander)
-        # if self.services:
-        # self.session.registerServices(self.services)
-        # self.session.start()
-        pass
 
     def send(self, message):
         self.session.sendMessageLater(message)
 
 
 class Session:
-    def __init__(self, name, messagePort, address, services, commander):
-        self.messagePort = messagePort
+    def __init__(self, name, address, services, commander):
         self.address = address
         self.name = name
         self.messageID = 0
@@ -54,6 +49,7 @@ class Session:
         def connectionHandler(message):
             if message.type == Message.Type.Response:
                 self.clientID = message.content.get(Message.KEY_CLIENT_ID)
+                print('client registered: ID={}'.format(self.clientID))
                 if self.services:
                     serv = []
                     serv += self.services
@@ -67,7 +63,6 @@ class Session:
 
         def serviceRegistrationHandler(message):
             if message.type == Message.Type.Response:
-                print('ok')
                 pass
             else:
                 raise ProtocolException('Unrecognized Message.', message)
@@ -76,13 +71,16 @@ class Session:
                           Message.COMMAND_SERVICE_REGISTRATION: serviceRegistrationHandler}
         self.commander.update(commander)
 
-    def start(self):
+    def start(self, async=False):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect((self.address, self.messagePort))
+        self.socket.connect(self.address)
         self.unpacker = msgpack.Unpacker(encoding='utf-8')
         self.communicator = Utils.BlockingCommunicator(self.socket, self.__dataFetcher, self.__dataSender)
         self.communicator.start()
         self.sendMessageLater(Message.createRequest(Message.COMMAND_CONNECTION, {Message.KEY_NAME: self.name}))
+        if not async:
+            while True:
+                time.sleep(1000)
 
     def registerCommand(self, command, function):
         if self.commander.__contains__(command):
@@ -108,6 +106,8 @@ class Session:
         commander = self.commander.get(command)
         if commander != None:
             commander(message)
+        else:
+            print('Undealed message: {}'.format(message))
 
 
 class ProtocolException(Exception):
@@ -135,7 +135,6 @@ class Message:
     KEY_STATUS = "Status"
     KEY_TARGET = "Target"
     KEY_FROM = "From"
-    KEY_TO = "To"
     KEY_CONTINUES = "Continues"
     KEY_SERVICE = "Service"
     VALUE_STATUS_OK = "Ok"
@@ -151,8 +150,8 @@ class Message:
         response = Message()
         response.content.__setitem__(Message.KEY_MESSAGE_ID, self.content.get(Message.KEY_MESSAGE_ID))
         response.content.__setitem__(Message.KEY_RESPONSE, self.content.get(Message.KEY_REQUEST))
-        if (self.content.__contains__(Message.KEY_TARGET)):
-            response.content.__setitem__(Message.KEY_TO, self.content.get(Message.KEY_FROM))
+        if (self.content.__contains__(Message.KEY_FROM)):
+            response.content.__setitem__(Message.KEY_TARGET, self.content.get(Message.KEY_FROM))
         return response
 
     def __str__(self):
@@ -205,62 +204,3 @@ class Message:
         Request = 1
         Response = 2
         Error = 3
-
-
-"""
-
-class AddressSeeker:
-    def __init__(self, port):
-        self.port = port
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        self.socket.setblocking(True)
-        self.message = bytes("Connection?", encoding="UTF-8");
-        self.ip = "192.168.1.255"
-
-    def seek(self):
-        while True:
-            self.broadcastConnectionRequest()
-            address = self.tryReceive()
-            if address:
-                return address
-
-    def broadcastConnectionRequest(self):
-        self.socket.sendto(self.message, (self.ip, self.port))
-
-    def tryReceive(self):
-        begin = time.time()
-        timeout = 1
-        message = None
-        while True:
-            if time.time() - begin > timeout:
-                break
-            try:
-                message, address = self.socket.recvfrom(1024)
-                if message:
-                    break
-                else:
-                    time.sleep(0.1)
-            finally:
-                time.sleep(0.1)
-        if message:
-            if "Connection".__eq__(str(message, "UTF-8")):
-                return address
-        time.sleep(timeout)
-        return None
-
-
-class MessageUnpacker:
-    def feed(self, data):
-        self.unpacker.feed(data)
-
-    def unpack(self):
-        return [message for message in self.unpacker]
-"""
-
-if __name__ == "__main__":
-    session = Session('VirtualPowerMeter', 20001, 'localhost', ['PowerMeter'], {})
-    session.start()
-
-    time.sleep(1000)

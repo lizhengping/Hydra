@@ -25,7 +25,6 @@ public class Client {
   private Map identity;
   private IoSession session;
   private ConcurrentHashMap<String, Service> services = new ConcurrentHashMap<>();
-//  private ConcurrentHashMap<WaitingRequestKey, Message> waitingRequests = new ConcurrentHashMap<>();
 
   private Client(int id, IoSession session) {
     this.id = id;

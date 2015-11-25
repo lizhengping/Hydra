@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 import org.msgpack.jackson.dataformat.MessagePackFactory;
 
 /**
@@ -17,6 +18,7 @@ public class Message {
   public static final String KEY_REQUEST = "Request";
   public static final String KEY_RESPONSE = "Response";
   public static final String KEY_MESSAGE_ID = "MessageID";
+  public static final String KEY_RESPONSE_ID = "ResponseID";
   public static final String KEY_NAME = "Name";
   public static final String KEY_CLIENT_ID = "ClientID";
   public static final String KEY_ERROR = "Error";
@@ -28,6 +30,7 @@ public class Message {
   public static final String KEY_CONTINUES = "Continues";
   public static final String VALUE_STATUS_OK = "Ok";
   public static final String COMMAND_CONNECTION = "Connection";
+  private static AtomicLong messageIDs = new AtomicLong(0);
   private final HashMap attributes = new HashMap();
   private Type type;
   private String commandString = "Unknown";
@@ -35,9 +38,6 @@ public class Message {
   private Target target;
   private long id = -1;
   private boolean continues = false;
-
-  public Message() {
-  }
 
   public Type getType() {
     return type;
@@ -132,11 +132,11 @@ public class Message {
   }
 
   public Message response() {
-    return new Message().put(KEY_RESPONSE, commandString).put(KEY_MESSAGE_ID, id);
+    return create().put(KEY_RESPONSE, commandString).put(KEY_RESPONSE_ID, id);
   }
 
   public Message responseError() {
-    return new Message().put(KEY_ERROR, commandString).put(KEY_MESSAGE_ID, id);
+    return create().put(KEY_ERROR, commandString).put(KEY_RESPONSE_ID, id);
   }
 
   /**
@@ -204,11 +204,15 @@ public class Message {
     }
   }
 
-  public static Message newMessage(Map contents) {
+  public static Message convert(Map contents) {
     Message message = new Message();
     message.attributes.putAll(contents);
     message.extractEssentialFields();
     return message;
+  }
+
+  public static Message create() {
+    return new Message().put(KEY_MESSAGE_ID, messageIDs.getAndIncrement());
   }
 
   public enum Type {

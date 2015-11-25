@@ -21,13 +21,22 @@ public class TEST {
     }
     System.setProperty("log4j.configurationFile",
             properties.getProperty("log4j.configurationFile", "./config/log4j.xml"));
-
-    int messagePort = 20001;
+    String messagePortS = properties.getProperty("messageserver.port", "20102");
+    int messagePort;
+    try {
+      messagePort = Integer.parseInt(messagePortS);
+    } catch (Exception e) {
+      messagePort = 20102;
+    }
     new MessageServer(messagePort).start();
 
-//    while (System.in.read() == 'q') {
-//      System.exit(0);
-//    }
-    Thread.sleep(1000 * 3600 * 365);
+    String exitCode = properties.getProperty("exit");
+    if (exitCode == null || exitCode.isEmpty()) {
+      Thread.sleep(1000 * 3600 * 24);
+    } else {
+      while (System.in.read() == exitCode.charAt(0)) {
+        System.exit(0);
+      }
+    }
   }
 }

@@ -26,7 +26,7 @@ public class MessageConvertor {
     Object convert = convert(value, 0);
     if (convert instanceof Map) {
       Map map = (Map) convert;
-      return Message.newMessage(map);
+      return Message.convert(map);
     } else {
       throw new IllegalArgumentException("Message should be a Map");
     }
