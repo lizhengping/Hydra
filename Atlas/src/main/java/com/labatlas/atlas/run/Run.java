@@ -39,7 +39,7 @@ public class Run {
     String exitCode = properties.getProperty("exit");
     if (exitCode == null || exitCode.isEmpty()) {
       try {
-        Thread.sleep(1000 * 3600 * 24);
+        Thread.sleep(1000l * 3600l * 24l * 365l * 10l);
       } catch (InterruptedException ex) {
         System.out.println("Process interrupted.");
         System.exit(13);

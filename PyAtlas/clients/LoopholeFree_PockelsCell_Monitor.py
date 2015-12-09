@@ -13,13 +13,13 @@ class PCControllerMonitor(RemoteInstrument):
         self.targetB = targetB
 
     def measure(self):
-        message = Message.createRequest('Measure', {'Target': self.targetA})
+        message = Message.createRequest('Measure', {'Target': self.targetB})
         super().request(message)
 
     def output(self, on):
         if not isinstance(on, bool):
             raise RuntimeError('Should be boolean.')
-        message = Message.createRequest('Output', {'Target': self.targetA, 'Status': '{}'.format(on).lower()})
+        message = Message.createRequest('Output', {'Target': self.targetB, 'Status': '{}'.format(on).lower()})
         super().request(message)
 
     def __remoteMeasure__(self, message):
@@ -42,7 +42,7 @@ if __name__ == '__main__':
                                   'PC Controller Bob')
     monitor.start(True)
     monitor.measure()
-    monitor.output(False)
+#    monitor.output(False)
     for i in range (20):
         time.sleep(0.5)
         monitor.measure()
