@@ -17,7 +17,7 @@ public abstract class Command {
   }
 
   public void execute(Message message, Client client) {
-    if (client.initialed()) {
+    if (client.isInitialed()) {
       executeCommand(message, client);
     } else {
       throw new ProtocolException("Command should be \"Connection\" for first Message.", message);

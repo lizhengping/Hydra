@@ -21,7 +21,7 @@ public class ServiceManager {
     Service service = getService(serviceName, true);
 
     //do something
-    LOGGER.trace("Client[{}, {}] registered for service[{}]. Now service[{}] has {} instances.",
+    LOGGER.info("Client[{}, {}] registered for service[{}]. Now service[{}] has {} instances.",
             client.getId(), client.getName(), serviceName, serviceName, -1);
 
     return service;
@@ -31,7 +31,7 @@ public class ServiceManager {
     Service service = getService(serviceName, true);
 
     //do something
-    LOGGER.trace("Client[{}, {}] unregistered from service[{}]. Now service[{}] has {} instances.",
+    LOGGER.info("Client[{}, {}] unregistered from service[{}]. Now service[{}] has {} instances.",
             client.getId(), client.getName(), serviceName, serviceName, -1);
 
     return service;

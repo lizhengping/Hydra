@@ -2,8 +2,6 @@ __author__ = 'Hwaipy'
 
 import time
 import jpype
-import os.path
-import numpy as np
 
 '''
 class GroundTDCParser:
@@ -40,11 +38,60 @@ class ByteBuffer:
         self.position = 0
 '''
 
+
+class DataProcessor:
+    def __init__(self):
+        self.c1 = []
+        self.c2 = []
+
+    def process(self, data):
+        '''
+        if data == None:
+            return
+        it = data.iterator()
+        while it.hasNext():
+            te = it.next()
+            channel = te[0]
+            time = te[1]
+            if channel == 2:
+                self.c1.append(time)
+            if channel == 3:
+                self.c2.append(time)
+        '''
+        pass
+
+    def calc(self, delay=0, gate=2000):
+        c = 0
+        t2Start = 0
+        for t1 in self.c1:
+            for index2 in range(t2Start, len(self.c2), 1):
+                t2 = self.c2[index2] + delay
+                diff = t2 - t1
+                if diff < -gate:
+                    t2Start += 1
+                    continue
+                if diff > gate:
+                    break
+                c += 1
+        return c
+
+
 if __name__ == '__main__':
     try:
         jpype.startJVM(jpype.getDefaultJVMPath(), '-ea',
                        '-Djava.class.path=/Users/Hwaipy/Documents/GitHub/LabAtlas/JAtlas/JTDC/target/classes:')
-        parser = jpype.JClass('com.hwaipy.vi.tdc.GroundTDCParser')()
+        groundTDCAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.GroundTDCDataAdapter')([0, 2, 3])
+        channelMappingTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.ChannelMappingTDCDataAdapter')(
+            [2, 3])
+        orderFilterTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.OrderFilterTDCDataAdapter')()
+        # serializingTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.SerializingTDCDataAdapter')(4, 20)
+        processor = DataProcessor()
+        jProcessor = jpype.JProxy("com.hwaipy.vi.tdc.TDCDataProcessor", inst=processor)
+        parser = jpype.JClass('com.hwaipy.vi.tdc.TDCParser')(jProcessor,
+                                                             [groundTDCAdapter
+                                                              #   , channelMappingTDCDataAdapter,
+                                                              # orderFilterTDCDataAdapter
+                                                              ])
         sampleFile = open('/users/hwaipy/documents/data/samples/20151129114403-帧错误示例.dat', 'r+b')
         # sampleFile = open('/users/hwaipy/documents/data/samples/Ground_TDC_1.dat', 'r+b')
         data = sampleFile.read()
@@ -60,15 +107,36 @@ if __name__ == '__main__':
 
         startTime = time.time()
         for section in dataSection:
-            te = parser.offer(section)
+            parser.offer(section)
         endTime = time.time()
         print((endTime - startTime))
-        print('Frame readed: {}'.format(parser.getFrameCount()))
-        print('Frame valid: {}'.format(parser.getValidFrameCount()))
-        print('Skipped in seeking head: {}'.format(parser.getSkippedInSeekingHead()))
-        print('Remaining: {}'.format(parser.getDataRemaining()))
-
+        print('----In GroundTDCDataAdapter----')
+        print('Frame readed: {}'.format(groundTDCAdapter.getFrameCount()))
+        print('Frame valid: {}'.format(groundTDCAdapter.getValidFrameCount()))
+        print('Skipped in seeking head: {}'.format(groundTDCAdapter.getSkippedInSeekingHead()))
+        print('Unknown channel events: {}'.format(groundTDCAdapter.getUnknownChannelEventCount()))
+        print('Valid events: {} {}'.format(sum(groundTDCAdapter.getValidEventCount()),
+                                           groundTDCAdapter.getValidEventCount()))
+        print('Remaining: {}'.format(groundTDCAdapter.getDataRemaining()))
         print('Addressed bytes: {}'.format(
-            parser.getFrameCount() * 2048 + parser.getSkippedInSeekingHead() + parser.getDataRemaining()))
+            groundTDCAdapter.getFrameCount() * 2048 + groundTDCAdapter.getSkippedInSeekingHead() + groundTDCAdapter.getDataRemaining()))
+        print('----In ChannelMappingTDCDataAdapter----')
+        print('Mapped events: {} {}'.format(sum(channelMappingTDCDataAdapter.getMappedEventCounts()),
+                                            channelMappingTDCDataAdapter.getMappedEventCounts()))
+        print('Unmapped events: {} {}'.format(sum(channelMappingTDCDataAdapter.getUnmappedEventCount()),
+                                              channelMappingTDCDataAdapter.getUnmappedEventCount()))
+        print('----In OrderFilterTDCDataAdapter----')
+        print('Valid events: {} {}'.format(sum(orderFilterTDCDataAdapter.getValidEventCounts()),
+                                           orderFilterTDCDataAdapter.getValidEventCounts()))
+        print('Unmapped events: {} {}'.format(sum(orderFilterTDCDataAdapter.getSkippedEventCounts()),
+                                              orderFilterTDCDataAdapter.getSkippedEventCounts()))
+        print('----In SerializingTDCDataAdapter----')
+    # print('Unmapped events: {} {}'.format(sum(serializingTDCDataAdapter.getSkippedEventCounts()),
+    #                                             serializingTDCDataAdapter.getSkippedEventCounts()))
+
+    # for delay in range(3000 - 100 * 13160, 3000 + 100 * 13160, 13160):
+    #    c = processor.calc(delay, 2000)
+    #    print('{}: {}'.format(delay, c))
     except jpype.JException(jpype.java.lang.RuntimeException) as e:
         print(e.message())
+        print(e.stackTrack())

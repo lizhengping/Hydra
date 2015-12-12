@@ -1,6 +1,8 @@
 package com.labatlas.atlas;
 
+import com.labatlas.atlas.commands.ConnectionCommand;
 import com.labatlas.atlas.commands.ServiceRegistrationCommand;
+import com.labatlas.atlas.commands.SummaryRegistrationCommand;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -23,5 +25,6 @@ public class Commands {
   static {
     registerCommand(new ConnectionCommand());
     registerCommand(new ServiceRegistrationCommand());
+    registerCommand(new SummaryRegistrationCommand());
   }
 }

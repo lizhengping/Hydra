@@ -25,6 +25,7 @@ public class Client {
   private Map identity;
   private IoSession session;
   private ConcurrentHashMap<String, Service> services = new ConcurrentHashMap<>();
+  private boolean closed = false;
 
   private Client(int id, IoSession session) {
     this.id = id;
@@ -135,12 +136,16 @@ public class Client {
     return name;
   }
 
-  boolean initialed() {
+  public boolean isInitialed() {
     return name != null;
   }
 
-  boolean init(String name) {
-    if (initialed()) {
+  public boolean isClosed() {
+    return closed;
+  }
+
+  public boolean init(String name) {
+    if (isInitialed()) {
       throw new RuntimeException("Client Already Initialed.");
     }
     this.name = name;
@@ -161,13 +166,12 @@ public class Client {
   public void registerService(String serviceName) {
     Service service = ServiceManager.getDefault().registerService(serviceName, this);
     this.services.putIfAbsent(serviceName, service);
-    LOGGER.info("Client[{}, {}] registered for service[{}].", getId(), getName(), serviceName);
   }
 
   private static AtomicInteger CLIENT_IDS = new AtomicInteger(0);
 
-  private static final HashMap<Integer, Client> clientsByID = new HashMap<>();
-  private static final HashMap<String, Client> clientsByName = new HashMap<>();
+  private static final HashMap<Integer, Client> CLIENTS_BY_ID = new HashMap<>();
+  private static final HashMap<String, Client> CLIENTS_BY_NAME = new HashMap<>();
 
   public static Client create(IoSession session) {
     Client client = new Client(CLIENT_IDS.getAndIncrement(), session);
@@ -176,68 +180,42 @@ public class Client {
   }
 
   private static boolean registerClient(Client client) {
-    synchronized (clientsByName) {
-      if (clientsByName.containsKey(client.getName())) {
+    synchronized (CLIENTS_BY_NAME) {
+      if (CLIENTS_BY_NAME.containsKey(client.getName())) {
         return false;
       }
-      clientsByID.put(client.getId(), client);
-      clientsByName.put(client.getName(), client);
-      LOGGER.trace("Client[{}, {}] registed. There are currently {} clients.", client.getId(), client.getName(), clientsByName.size());
+      CLIENTS_BY_ID.put(client.getId(), client);
+      CLIENTS_BY_NAME.put(client.getName(), client);
+      LOGGER.trace("Client[{}, {}] registed. There are currently {} clients.", client.getId(), client.getName(), CLIENTS_BY_NAME.size());
       return true;
     }
   }
 
   private static void unregisterClient(Client client) {
-    synchronized (clientsByName) {
-      clientsByID.remove(client.getId());
-      clientsByName.remove(client.getName());
-      LOGGER.trace("Client[{}, {}] unregisted. There are currently {} clients.", client.getId(), client.getName(), clientsByName.size());
+    synchronized (CLIENTS_BY_NAME) {
+      CLIENTS_BY_ID.remove(client.getId());
+      CLIENTS_BY_NAME.remove(client.getName());
+      LOGGER.trace("Client[{}, {}] unregisted. There are currently {} clients.", client.getId(), client.getName(), CLIENTS_BY_NAME.size());
     }
   }
 
   public static Client getClient(String clientName) {
-    return clientsByName.get(clientName);
+    return CLIENTS_BY_NAME.get(clientName);
   }
 
   public static Client getClient(int clientId) {
-    return clientsByID.get(clientId);
+    return CLIENTS_BY_ID.get(clientId);
   }
 
   public void close() {
-    if (initialed()) {
+    if (isInitialed()) {
       unregisterClient(this);
     }
     for (String serviceName : services.keySet()) {
       ServiceManager.getDefault().unregisterService(serviceName, this);
     }
+    SummaryManager.getDefault().unregisterSummaryListener(this);
+    closed = true;
     LOGGER.info("Client[{}, {}] disconnected. Session[{}], Address[{}].", getId(), getName(), session.getId(), session.getRemoteAddress());
   }
-
-//  private class WaitingRequestKey {
-//
-//    private final int sourceID;
-//    private final long messageID;
-//
-//    public WaitingRequestKey(int sourceID, long messageID) {
-//      this.sourceID = sourceID;
-//      this.messageID = messageID;
-//    }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//      if (obj == null || !(obj instanceof WaitingRequestKey)) {
-//        return false;
-//      }
-//      WaitingRequestKey inst = (WaitingRequestKey) obj;
-//      return inst.sourceID == sourceID && inst.messageID == messageID;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//      int hash = 5;
-//      hash = 43 * hash + this.sourceID;
-//      hash = 43 * hash + (int) (this.messageID ^ (this.messageID >>> 32));
-//      return hash;
-//    }
-//  }
 }
