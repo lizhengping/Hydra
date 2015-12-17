@@ -34,18 +34,18 @@ class PCControllerMonitor(RemoteInstrument):
 
 __clientName__ = 'PC Monitor 2'
 __serverPort__ = 20102
-__serverAddress__ = '172.16.60.199'
+__serverAddress__ = 'localhost'
 
 if __name__ == '__main__':
     print('{} started.'.format(__clientName__))
     monitor = PCControllerMonitor(__clientName__, (__serverAddress__, __serverPort__), 'PC Controller Alice',
                                   'PC Controller Bob')
     monitor.start(True)
-    monitor.measure()
+#    monitor.measure()
 #    monitor.output(False)
-    for i in range (20):
-        time.sleep(0.5)
-        monitor.measure()
+#    for i in range (20):
+ #       time.sleep(0.5)
+  #      monitor.measure()
 
 
     time.sleep(100000)

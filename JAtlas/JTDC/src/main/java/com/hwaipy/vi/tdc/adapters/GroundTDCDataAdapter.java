@@ -6,8 +6,6 @@ import java.nio.BufferOverflowException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  *
@@ -15,7 +13,7 @@ import java.util.List;
  */
 public class GroundTDCDataAdapter implements TDCDataAdapter {
 
-  private final ByteBuffer dataBuffer = ByteBuffer.allocate(10000000);
+  private final ByteBuffer dataBuffer = ByteBuffer.allocate(100000000);
   private static final int FRAME_SIZE = 2048;
   private static final long COARSE_TIME_LIMIT = 1 << 28;
   private long carry = 0;
@@ -23,16 +21,15 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
   private final long[] unitLong = new long[8];
   private final FineTimeCalibrator calibrator;
   private static final CRC16 CRC16 = new CRC16(0x8005);
-  private final ArrayList<ArrayList<Long>> timeEventsSet = new ArrayList<>();
+  private final ArrayList<Long> timeEvents = new ArrayList<>(100000);
   private final int[] channelMapping;
   private final int[] antiChannelMapping;
+  private final int channelBit;
+  private final long maxTime;
 
   public GroundTDCDataAdapter(int[] channelMapping) {
     try {
       this.calibrator = new FineTimeCalibrator(null, 20);
-      for (int i = 0; i < channelMapping.length; i++) {
-        timeEventsSet.add(new ArrayList<Long>(100000));
-      }
       validEventCount = new int[channelMapping.length];
     } catch (IOException ex) {
       throw new RuntimeException(ex);
@@ -50,10 +47,12 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
     for (int i = 0; i < channelMapping.length; i++) {
       antiChannelMapping[channelMapping[i]] = i;
     }
+    channelBit = (int) (Math.log(maxChannel) / Math.log(2));
+    maxTime = Long.MAX_VALUE >> channelBit;
   }
 
   @Override
-  public List<ArrayList<Long>> offer(Object data) {
+  public Object offer(Object data) {
     if (data == null) {
       return null;
     }
@@ -67,9 +66,7 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
       throw new IllegalArgumentException("Input data too much.", e);
     }
     dataBuffer.flip();
-    for (ArrayList<Long> timeEvents : timeEventsSet) {
-      timeEvents.clear();
-    }
+    timeEvents.clear();
     while (dataBuffer.hasRemaining()) {
       if (!seekForFrameHead()) {
         break;
@@ -81,7 +78,7 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
         frameCount++;
         if (crc()) {
           validFrameCount++;
-          int pStart = dataBuffer.position();
+          int pStart = dataBuffer.position() + 8;
           int pEnd = pStart + FRAME_SIZE - 16;
           for (int p = pStart; p < pEnd; p += 8) {
             parseToTimeEvent(p);
@@ -96,11 +93,11 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
       }
     }
     dataBuffer.compact();
-    return Collections.unmodifiableList(timeEventsSet);
+    return timeEvents;
   }
 
   @Override
-  public List<ArrayList<Long>> flush(Object data) {
+  public Object flush(Object data) {
     return offer(data);
   }
 
@@ -150,6 +147,9 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
         return true;
       }
     }
+    if (headFlagCount > 0) {
+      dataBuffer.position(dataBuffer.position() - headFlagCount);
+    }
     skippedInSeekingHead += (dataBuffer.position() - startPosition);
     return false;
   }
@@ -171,6 +171,7 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
     int datacrc = dc1 + dc2 * 256;
     return crc == datacrc;
   }
+  private long pre = -1;
 
   private void parseToTimeEvent(int position) {
     byte[] array = dataBuffer.array();
@@ -194,8 +195,12 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
       unknownChannelEventCount++;
     } else {
       int mappedChannel = antiChannelMapping[channel];
-//      timeEventsSet.get(channel).add(time);
-//      validEventCount[channel]++;
+      if (time > maxTime) {
+        throw new RuntimeException("Time (" + time + ") exceed max time limit (" + maxTime + ").");
+      }
+      long timeEvent = (time << channelBit) + mappedChannel;
+      timeEvents.add(timeEvent);
+      validEventCount[mappedChannel]++;
     }
   }
 }

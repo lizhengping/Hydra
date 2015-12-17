@@ -20,11 +20,13 @@ public class Client {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(Client.class);
   public static final String KEY_IDENTITY_NAME = "Name";
+  public static final String KEY_CONNECTION_TIME = "ConnectionTime";
   private final int id;
   private String name;
   private Map identity;
   private IoSession session;
   private ConcurrentHashMap<String, Service> services = new ConcurrentHashMap<>();
+  private long connectionTime;
   private boolean closed = false;
 
   private Client(int id, IoSession session) {
@@ -83,51 +85,7 @@ public class Client {
       }
     }
   }
-//      if (initialed()) {
-//        Collection<Client> remoteClients = target.getRemoteClients();
-//        if (remoteClients.isEmpty()) {
-//          throw new ProtocolException("Target not exists.", message);
-//        } else {
-//          for (Client remoteClient : remoteClients) {
-//            Message messageCopy = message.copy().put(Message.KEY_FROM, identity);
-//            remoteClient.dealRequest(messageCopy);
-//          }
-//        }
-//      } else {
-//        throw new ProtocolException("Connection need to be initialed first using \"Connection\" command.", message);
-//      }
 
-//  private void feedResponse(Message message) throws ProtocolException {
-//    long responseID = message.getID();
-//    Map toMap = message.get(Message.KEY_To, Map.class);
-//    Object clientIDO = toMap.get(Message.KEY_CLIENT_ID);
-//    if (clientIDO == null || !(clientIDO instanceof Integer)) {
-//      throw new ProtocolException("The response destination need to specified correctly.", message);
-//    }
-//    int clientID = (int) clientIDO;
-//    WaitingRequestKey key = new WaitingRequestKey(clientID, responseID);
-//    Message associatedRequest = waitingRequests.get(key);
-//    if (associatedRequest == null) {
-//      throw new ProtocolException("Request associated to this response not exists.", message);
-//    }
-//    if (!message.isContinues()) {
-//      waitingRequests.remove(key);
-//    }
-//    Client toClient = Client.getClient(clientID);
-//    if (toClient != null) {
-//      toClient.response(message);
-//    }
-//  }
-//  private void dealRequest(Message message) {
-//    long messageID = message.getID();
-//    int sourceID = (int) message.get(Message.KEY_FROM, Map.class).get(Message.KEY_CLIENT_ID);
-//    WaitingRequestKey key = new WaitingRequestKey(sourceID, messageID);
-//    if (waitingRequests.containsKey(key)) {
-//      throw new ProtocolException("Request ID " + message.getID() + " Duplicate.", message);
-//    }
-//    waitingRequests.put(key, message);
-//    session.write(message);
-//  }
   public int getId() {
     return id;
   }
@@ -149,6 +107,7 @@ public class Client {
       throw new RuntimeException("Client Already Initialed.");
     }
     this.name = name;
+    connectionTime = System.currentTimeMillis();
     if (registerClient(this)) {
       LOGGER.info("Client[{}] registered as [{}].", getId(), getName());
       HashMap<String, Object> map = new HashMap<>();
@@ -205,6 +164,18 @@ public class Client {
 
   public static Client getClient(int clientId) {
     return CLIENTS_BY_ID.get(clientId);
+  }
+
+  public static Collection<Client> getClients() {
+    return Collections.unmodifiableCollection(CLIENTS_BY_ID.values());
+  }
+
+  public Map getSummaryInfomation() {
+    Map map = new HashMap();
+    map.put(Message.KEY_CLIENT_ID, id);
+    map.put(KEY_IDENTITY_NAME, name);
+    map.put(KEY_CONNECTION_TIME, connectionTime);
+    return map;
   }
 
   public void close() {

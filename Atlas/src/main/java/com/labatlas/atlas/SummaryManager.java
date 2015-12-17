@@ -1,5 +1,8 @@
 package com.labatlas.atlas;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -15,6 +18,7 @@ public class SummaryManager {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(SummaryManager.class);
   private static final String KEY_SUMMARY = "Summary";
+  private static final String KEY_CLIENTS_LIST = "ClientsList";
   private final ConcurrentHashMap<Client, Message> listeningClients;
 
   private SummaryManager() {
@@ -44,10 +48,10 @@ public class SummaryManager {
   }
 
   private void triggerSummaryEvent() {
-    String summary = "This is a summary";
+    List< Map> summaryList = generateSummaryInfomation();
     for (Map.Entry<Client, Message> entry : listeningClients.entrySet()) {
       try {
-        Message response = entry.getValue().response().put(KEY_SUMMARY, summary);
+        Message response = entry.getValue().response().put(KEY_SUMMARY, summaryList);
         entry.getKey().write(response);
       } catch (Exception e) {
         LOGGER.warn("Exception in writing summary message at Client[" + entry.getKey().getId() + ", " + entry.getKey().getName() + "]", e);
@@ -58,5 +62,15 @@ public class SummaryManager {
 
   public static SummaryManager getDefault() {
     return INSTANCE;
+  }
+
+  private List<Map> generateSummaryInfomation() {
+    Collection<Client> clients = Client.getClients();
+    List<Map> summaryList = new ArrayList<>();
+    for (Client client : clients) {
+      Map csi = client.getSummaryInfomation();
+      summaryList.add(csi);
+    }
+    return summaryList;
   }
 }

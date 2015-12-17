@@ -89,12 +89,10 @@ public class Message {
         } else {
           throw new ProtocolException("Null value invalid with key \"" + key + "\".", this);
         }
+      } else if (clazz.isInstance(value)) {
+        return (T) value;
       } else {
-        if (clazz.isInstance(value)) {
-          return (T) value;
-        } else {
-          throw new ProtocolException("The value of key \"" + key + "\" can not cast to " + clazz, this);
-        }
+        throw new ProtocolException("The value of key \"" + key + "\" can not cast to " + clazz, this);
       }
     } else {
       throw new ProtocolException("Message does not contains key \"" + key + "\".", this);
@@ -184,14 +182,12 @@ public class Message {
     }
     if (IDO == null) {
       throw new ProtocolException("ID should be assigned.", this);
+    } else if (IDO instanceof Integer) {
+      id = (int) IDO;
+    } else if (IDO instanceof Long) {
+      id = (long) IDO;
     } else {
-      if (IDO instanceof Integer) {
-        id = (int) IDO;
-      } else if (IDO instanceof Long) {
-        id = (long) IDO;
-      } else {
-        throw new ProtocolException("ID should be Integer.", this);
-      }
+      throw new ProtocolException("ID should be Integer.", this);
     }
     target = Target.create(this);
     if (type == Type.RESPONSE && attributes.containsKey(KEY_CONTINUES)) {

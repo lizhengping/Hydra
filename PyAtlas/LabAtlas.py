@@ -101,7 +101,6 @@ class Session:
         self.socket.send(msgpack.packb(message.content))
 
     def messageDeal(self, message):
-        print(message)
         command = message.command
         commander = self.commander.get(command)
         if commander != None:

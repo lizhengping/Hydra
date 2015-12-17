@@ -79,19 +79,17 @@ class DataProcessor:
 if __name__ == '__main__':
     try:
         jpype.startJVM(jpype.getDefaultJVMPath(), '-ea',
-                       '-Djava.class.path=/Users/Hwaipy/Documents/GitHub/LabAtlas/JAtlas/JTDC/target/classes:')
+                       '-Djava.class.path=/Users/Hwaipy/Documents/GitHub/LabAtlas/JAtlas/JTDC/target/classes')
+        tester = jpype.JClass('com.hwaipy.jatlas.groundtdcserver._Tester')()
+        tester.testParseTime()
+        '''
         groundTDCAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.GroundTDCDataAdapter')([0, 2, 3])
-        channelMappingTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.ChannelMappingTDCDataAdapter')(
-            [2, 3])
-        orderFilterTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.OrderFilterTDCDataAdapter')()
-        # serializingTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.SerializingTDCDataAdapter')(4, 20)
+        bufferedOrderTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.BufferedOrderTDCDataAdapter')()
+        serializingTDCDataAdapter = jpype.JClass('com.hwaipy.vi.tdc.adapters.SerializingTDCDataAdapter')(4, 20)
         processor = DataProcessor()
         jProcessor = jpype.JProxy("com.hwaipy.vi.tdc.TDCDataProcessor", inst=processor)
         parser = jpype.JClass('com.hwaipy.vi.tdc.TDCParser')(jProcessor,
-                                                             [groundTDCAdapter
-                                                              #   , channelMappingTDCDataAdapter,
-                                                              # orderFilterTDCDataAdapter
-                                                              ])
+                                                             [groundTDCAdapter])
         sampleFile = open('/users/hwaipy/documents/data/samples/20151129114403-帧错误示例.dat', 'r+b')
         # sampleFile = open('/users/hwaipy/documents/data/samples/Ground_TDC_1.dat', 'r+b')
         data = sampleFile.read()
@@ -101,7 +99,7 @@ if __name__ == '__main__':
         position = 0
         while position < len(data):
             nextPosition = min(len(data), position + randomSeed)
-            randomSeed = (randomSeed * 2) % 376111 + 7
+            randomSeed = (randomSeed * 2) % 3711 + 7
             dataSection.append(data[position: nextPosition])
             position = nextPosition
 
@@ -120,16 +118,8 @@ if __name__ == '__main__':
         print('Remaining: {}'.format(groundTDCAdapter.getDataRemaining()))
         print('Addressed bytes: {}'.format(
             groundTDCAdapter.getFrameCount() * 2048 + groundTDCAdapter.getSkippedInSeekingHead() + groundTDCAdapter.getDataRemaining()))
-        print('----In ChannelMappingTDCDataAdapter----')
-        print('Mapped events: {} {}'.format(sum(channelMappingTDCDataAdapter.getMappedEventCounts()),
-                                            channelMappingTDCDataAdapter.getMappedEventCounts()))
-        print('Unmapped events: {} {}'.format(sum(channelMappingTDCDataAdapter.getUnmappedEventCount()),
-                                              channelMappingTDCDataAdapter.getUnmappedEventCount()))
-        print('----In OrderFilterTDCDataAdapter----')
-        print('Valid events: {} {}'.format(sum(orderFilterTDCDataAdapter.getValidEventCounts()),
-                                           orderFilterTDCDataAdapter.getValidEventCounts()))
-        print('Unmapped events: {} {}'.format(sum(orderFilterTDCDataAdapter.getSkippedEventCounts()),
-                                              orderFilterTDCDataAdapter.getSkippedEventCounts()))
+        print('----In bufferedOrderTDCDataAdapter----')
+        print('SortOurttedCount: {}'.format(bufferedOrderTDCDataAdapter.getSortOuttedCount()))
         print('----In SerializingTDCDataAdapter----')
     # print('Unmapped events: {} {}'.format(sum(serializingTDCDataAdapter.getSkippedEventCounts()),
     #                                             serializingTDCDataAdapter.getSkippedEventCounts()))
@@ -137,6 +127,6 @@ if __name__ == '__main__':
     # for delay in range(3000 - 100 * 13160, 3000 + 100 * 13160, 13160):
     #    c = processor.calc(delay, 2000)
     #    print('{}: {}'.format(delay, c))
-    except jpype.JException(jpype.java.lang.RuntimeException) as e:
-        print(e.message())
-        print(e.stackTrack())
+        '''
+    except jpype.JavaException as e:
+        print(e.stacktrace())
