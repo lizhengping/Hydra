@@ -11,8 +11,7 @@ import java.util.List;
 public class BufferedOrderTDCDataAdapter implements TDCDataAdapter {
 
   private ArrayList<Long> buffer = new ArrayList<>(100000);
-  private ArrayList<Long> doubleBuffer = new ArrayList<>(100000);
-  private final int preservedEvent = 100;
+  private final int preservedEvent = 10;
   private long previousTime = 0;
   private int sortOuttedCount = 0;
 
@@ -42,17 +41,20 @@ public class BufferedOrderTDCDataAdapter implements TDCDataAdapter {
       }
       startPotision++;
     }
-    List<Long> result;
+    ArrayList<Long> result;
     sortOuttedCount += startPotision;
-    if (buffer.size() - startPotision > preservedEvent) {
-      result = buffer.subList(startPotision, buffer.size() - preservedEvent);
-      ArrayList<Long> mid = buffer;
-      buffer = doubleBuffer;
-      doubleBuffer = mid;
-    } else {
-      result = new ArrayList<>(buffer);
+    if (startPotision > 0) {
     }
-    buffer.clear();
+    if (buffer.size() - startPotision > preservedEvent) {
+      result = new ArrayList<>(buffer.subList(startPotision, buffer.size() - preservedEvent));
+      buffer = new ArrayList<>(buffer.subList(buffer.size() - preservedEvent, buffer.size()));
+    } else {
+      result = new ArrayList<>();
+      for (Long te : buffer) {
+        result.add(te);
+      }
+      buffer = new ArrayList<>();
+    }
     if (result.size() > 0) {
       previousTime = result.get(result.size() - 1);
     }

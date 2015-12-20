@@ -171,7 +171,6 @@ public class GroundTDCDataAdapter implements TDCDataAdapter {
     int datacrc = dc1 + dc2 * 256;
     return crc == datacrc;
   }
-  private long pre = -1;
 
   private void parseToTimeEvent(int position) {
     byte[] array = dataBuffer.array();

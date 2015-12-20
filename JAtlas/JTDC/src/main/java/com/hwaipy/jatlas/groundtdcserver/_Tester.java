@@ -8,13 +8,11 @@ import com.hwaipy.vi.tdc.adapters.GroundTDCDataAdapter;
 import com.hwaipy.vi.tdc.adapters.SerializingTDCDataAdapter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 
 /**
  *
@@ -22,15 +20,16 @@ import java.util.logging.Logger;
  */
 public class _Tester {
 
-  public void testParseTime() throws FileNotFoundException, IOException {
-    GroundTDCDataAdapter groundTDCAdapter = new com.hwaipy.vi.tdc.adapters.GroundTDCDataAdapter(new int[]{0, 2, 3});
-    BufferedOrderTDCDataAdapter bufferedOrderTDCDataAdapter = new com.hwaipy.vi.tdc.adapters.BufferedOrderTDCDataAdapter();
-    SerializingTDCDataAdapter serializingTDCDataAdapter = new com.hwaipy.vi.tdc.adapters.SerializingTDCDataAdapter(3, 100);
-    DeserializingTDCDataAdapter deserializingTDCDataAdapter = new com.hwaipy.vi.tdc.adapters.DeserializingTDCDataAdapter();
+  public void testParseTime() throws FileNotFoundException, IOException, InterruptedException {
+    GroundTDCDataAdapter groundTDCAdapter = new GroundTDCDataAdapter(new int[]{0, 6});
+    BufferedOrderTDCDataAdapter bufferedOrderTDCDataAdapter = new BufferedOrderTDCDataAdapter();
+    SerializingTDCDataAdapter serializingTDCDataAdapter = new SerializingTDCDataAdapter(2, 100);
+    DeserializingTDCDataAdapter deserializingTDCDataAdapter = new DeserializingTDCDataAdapter();
     DataProcessor processor = new DataProcessor();
-    TDCParser parser = new com.hwaipy.vi.tdc.TDCParser(processor, groundTDCAdapter, bufferedOrderTDCDataAdapter, serializingTDCDataAdapter, deserializingTDCDataAdapter);
-    File file = new File("/users/hwaipy/documents/data/samples/20151129114403-帧错误示例.dat");
-//    File file = new File("/users/hwaipy/documents/data/samples/Ground_TDC_1.dat");
+    TDCParser parser = new TDCParser(processor, groundTDCAdapter, bufferedOrderTDCDataAdapter, serializingTDCDataAdapter, deserializingTDCDataAdapter
+    );
+//    File file = new File("/users/hwaipy/documents/data/samples/20151129114403-帧错误示例.dat");
+    File file = new File("/users/hwaipy/documents/data/samples/Ground_TDC_1.dat");
     int fileLength = (int) file.length();
     RandomAccessFile raf = new RandomAccessFile(file, "r");
     byte[] data = new byte[fileLength];
@@ -51,6 +50,7 @@ public class _Tester {
     for (byte[] section : dataSection) {
       parser.offer(section);
     }
+    parser.waitForFinish();
     long endTime = System.nanoTime();
     System.out.println((endTime - startTime) / 1e9);
     System.out.println("----In GroundTDCDataAdapter----");
@@ -76,19 +76,44 @@ public class _Tester {
 
   private class DataProcessor implements TDCDataProcessor {
 
+    private long lastTime = 0;
+
     @Override
     public void process(Object data) {
       if (data == null) {
         return;
       }
-      if (!(data instanceof byte[])) {
+      if (data instanceof long[]) {
+        long[] timeEvents = (long[]) data;
+        for (long timeEvent : timeEvents) {
+          long channel = timeEvent % 4;
+          if (channel == 0) {
+            continue;
+          }
+          long time = timeEvent >> 2;
+          long diff = time - lastTime;
+          if (diff > 1100000) {
+            System.out.println(diff);
+          }
+          lastTime = time;
+        }
+      } else if (data instanceof List) {
+        List<Long> timeEvents = (List<Long>) data;
+        for (Long timeEvent : timeEvents) {
+          long channel = timeEvent % 4;
+          if (channel == 0) {
+            continue;
+          }
+          long time = timeEvent >> 2;
+          long diff = time - lastTime;
+          if (diff > 1100000) {
+            System.out.println(diff);
+          }
+          lastTime = time;
+        }
+      } else {
+        System.out.println(data.getClass());
         throw new RuntimeException();
-      }
-      byte[] dataB = (byte[]) data;
-      try (FileOutputStream fos = new FileOutputStream("/users/hwaipy/documents/data/Outputs/out.dat", true)) {
-        fos.write(dataB);
-      } catch (Exception ex) {
-        Logger.getLogger(_Tester.class.getName()).log(Level.SEVERE, null, ex);
       }
     }
   }

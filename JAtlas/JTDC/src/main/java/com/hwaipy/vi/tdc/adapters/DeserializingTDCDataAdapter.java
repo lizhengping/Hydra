@@ -32,6 +32,6 @@ public class DeserializingTDCDataAdapter implements TDCDataAdapter {
     if (!(data instanceof byte[])) {
       throw new IllegalArgumentException("The input data of DeserializingTDCDataAdapter should be byte array.");
     }
-    return deserializer.serialize((byte[]) data);
+    return deserializer.deserialize((byte[]) data);
   }
 }
