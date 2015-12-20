@@ -29,7 +29,7 @@ public class _Tester {
     TDCParser parser = new TDCParser(processor, groundTDCAdapter, bufferedOrderTDCDataAdapter, serializingTDCDataAdapter, deserializingTDCDataAdapter
     );
 //    File file = new File("/users/hwaipy/documents/data/samples/20151129114403-帧错误示例.dat");
-    File file = new File("/users/hwaipy/documents/data/samples/Ground_TDC_1.dat");
+    File file = new File("/users/hwaipy/documents/data/samples/Ground_TDC_1.dat");;
     int fileLength = (int) file.length();
     RandomAccessFile raf = new RandomAccessFile(file, "r");
     byte[] data = new byte[fileLength];
