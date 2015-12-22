@@ -1,20 +1,21 @@
 __author__ = 'Hwaipy'
 import socket
 import time
-import threading
 import msgpack
-# import random
-import queue
 import enum
+import Utils
+import threading
+import random
 
-"""
-class ClientRunner:
-    def __init__(self, name, messagePort=20001, broadcastPort=20051, services=None, commander=None):
+
+class Client:
+    def __init__(self, name, messagePort, broadcastPort, services, commander):
         self.messagePort = messagePort
         self.broadcastPort = broadcastPort
         self.services = services
         self.commander = commander
         self.name = name
+        self.session = None
 
     def start(self):
         threading._start_new_thread(self.run, ())
@@ -22,26 +23,21 @@ class ClientRunner:
     def run(self):
         while True:
             try:
-                self.startClient()
+                self.startSession()
             finally:
                 print("one client failed")
-                self.client.running = False
+                self.session.running = False
                 time.sleep(random.Random().randint(100, 1000) / 1000)
 
-    def startClient(self):
-        self.client = Client(self.name, self.messagePort, self.broadcastPort, self.commander)
-        if self.services:
-            self.client.registerServices(self.services)
-        self.client.start()
+    def startSession(self):
+        self.session = Session(self.name, self.messagePort, self.broadcastPort, self.commander)
 
     def send(self, message):
-        self.client.sendMessageLater(message)
-"""
+        self.session.sendMessageLater(message)
 
 
-class Client:
-    def __init__(self, name, messagePort, address, services, commander):
-        self.messagePort = messagePort
+class Session:
+    def __init__(self, name, address, services, commander):
         self.address = address
         self.name = name
         self.messageID = 0
@@ -53,6 +49,7 @@ class Client:
         def connectionHandler(message):
             if message.type == Message.Type.Response:
                 self.clientID = message.content.get(Message.KEY_CLIENT_ID)
+                print('client registered: ID={}'.format(self.clientID))
                 if self.services:
                     serv = []
                     serv += self.services
@@ -66,7 +63,6 @@ class Client:
 
         def serviceRegistrationHandler(message):
             if message.type == Message.Type.Response:
-                print('ok')
                 pass
             else:
                 raise ProtocolException('Unrecognized Message.', message)
@@ -75,13 +71,16 @@ class Client:
                           Message.COMMAND_SERVICE_REGISTRATION: serviceRegistrationHandler}
         self.commander.update(commander)
 
-    def start(self):
+    def start(self, async=False):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect((self.address, self.messagePort))
+        self.socket.connect(self.address)
         self.unpacker = msgpack.Unpacker(encoding='utf-8')
-        self.communicator = BlockingCommunicator(self.socket, self.__dataFetcher, self.__dataSender)
+        self.communicator = Utils.BlockingCommunicator(self.socket, self.__dataFetcher, self.__dataSender)
         self.communicator.start()
         self.sendMessageLater(Message.createRequest(Message.COMMAND_CONNECTION, {Message.KEY_NAME: self.name}))
+        if not async:
+            while True:
+                time.sleep(1000)
 
     def registerCommand(self, command, function):
         if self.commander.__contains__(command):
@@ -102,11 +101,12 @@ class Client:
         self.socket.send(msgpack.packb(message.content))
 
     def messageDeal(self, message):
-        print(message)
         command = message.command
         commander = self.commander.get(command)
         if commander != None:
             commander(message)
+        else:
+            print('Undealed message: {}'.format(message))
 
 
 class ProtocolException(Exception):
@@ -121,6 +121,7 @@ class ProtocolException(Exception):
         else:
             return self.description
 
+
 class Message:
     messageIndex = 0
     KEY_REQUEST = "Request"
@@ -133,7 +134,6 @@ class Message:
     KEY_STATUS = "Status"
     KEY_TARGET = "Target"
     KEY_FROM = "From"
-    KEY_TO = "To"
     KEY_CONTINUES = "Continues"
     KEY_SERVICE = "Service"
     VALUE_STATUS_OK = "Ok"
@@ -149,8 +149,8 @@ class Message:
         response = Message()
         response.content.__setitem__(Message.KEY_MESSAGE_ID, self.content.get(Message.KEY_MESSAGE_ID))
         response.content.__setitem__(Message.KEY_RESPONSE, self.content.get(Message.KEY_REQUEST))
-        if (self.content.__contains__(Message.KEY_TARGET)):
-            response.content.__setitem__(Message.KEY_TO, self.content.get(Message.KEY_FROM))
+        if (self.content.__contains__(Message.KEY_FROM)):
+            response.content.__setitem__(Message.KEY_TARGET, self.content.get(Message.KEY_FROM))
         return response
 
     def __str__(self):
@@ -169,7 +169,7 @@ class Message:
             self.type = Message.Type.Response
         elif not errorCommandO == None:
             typeCommand = errorCommandO
-            self.type = Message.Type.Error;
+            self.type = Message.Type.Error
         else:
             raise ProtocolException('Command should be assigned.', self)
         if isinstance(typeCommand, str):
@@ -203,111 +203,3 @@ class Message:
         Request = 1
         Response = 2
         Error = 3
-
-
-"""
-
-class AddressSeeker:
-    def __init__(self, port):
-        self.port = port
-        self.socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-        self.socket.setblocking(True)
-        self.message = bytes("Connection?", encoding="UTF-8");
-        self.ip = "192.168.1.255"
-
-    def seek(self):
-        while True:
-            self.broadcastConnectionRequest()
-            address = self.tryReceive()
-            if address:
-                return address
-
-    def broadcastConnectionRequest(self):
-        self.socket.sendto(self.message, (self.ip, self.port))
-
-    def tryReceive(self):
-        begin = time.time()
-        timeout = 1
-        message = None
-        while True:
-            if time.time() - begin > timeout:
-                break
-            try:
-                message, address = self.socket.recvfrom(1024)
-                if message:
-                    break
-                else:
-                    time.sleep(0.1)
-            finally:
-                time.sleep(0.1)
-        if message:
-            if "Connection".__eq__(str(message, "UTF-8")):
-                return address
-        time.sleep(timeout)
-        return None
-
-
-class MessageUnpacker:
-    def feed(self, data):
-        self.unpacker.feed(data)
-
-    def unpack(self):
-        return [message for message in self.unpacker]
-"""
-
-
-class Communicator:
-    def __init__(self, channel, dataFetcher, dataSender):
-        self.channel = channel
-        self.dataFetcher = dataFetcher
-        self.dataSender = dataSender
-        self.sendQueue = queue.Queue()
-
-    def start(self):
-        self.running = True
-        threading._start_new_thread(self.receiveLoop, ())
-        threading._start_new_thread(self.sendLoop, ())
-
-    def receiveLoop(self):
-        try:
-            while self.running:
-                self.dataFetcher(self.channel)
-        finally:
-            self.running = False
-
-    def sendLater(self, message):
-        self.sendQueue.put(message)
-
-    def sendLoop(self):
-        try:
-            while self.running:
-                message = self.sendQueue.get()
-                self.dataSender(self.channel, message)
-        finally:
-            self.running = False
-
-
-class BlockingCommunicator(Communicator):
-    def __init__(self, channel, dataFetcher, dataSender):
-        Communicator.__init__(self, channel, self.dataQueuer, dataSender)
-        self.dataQueue = queue.Queue()
-        self.dataFetcherIn = dataFetcher
-
-    def dataQueuer(self, channel):
-        data = self.dataFetcherIn(channel)
-        self.dataQueue.put(data)
-
-    def query(self, message):
-        self.sendLater(message)
-        return self.dataQueue.get()
-
-
-if __name__ == "__main__":
-    client = Client('VirtualPowerMeter', 20001, 'localhost', ['PowerMeter'], {})
-    client.start()
-    # runner = ClientRunner("TestService", services=["PowerMeter", "PowerMeter1", "PowerMeter2"],
-    # commander={"Version": "hha"})
-    # runner.start()
-    time.sleep(1000)

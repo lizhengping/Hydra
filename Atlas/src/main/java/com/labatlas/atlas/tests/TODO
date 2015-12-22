@@ -1,3 +1,0 @@
-Client 应该有一个唯一的标识（比如，名字）。
-Client disconnect 后，所注册的内容应该取消。
-Server 应该是唯一的。
