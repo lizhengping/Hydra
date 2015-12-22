@@ -1,4 +1,4 @@
-package com.hwaipy.jatlas.visa;
+package com.hydra.visa;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

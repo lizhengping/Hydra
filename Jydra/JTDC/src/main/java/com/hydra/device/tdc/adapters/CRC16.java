@@ -1,4 +1,4 @@
-package com.hwaipy.vi.tdc.adapters;
+package com.hydra.device.tdc.adapters;
 
 /**
  *

@@ -1,11 +1,11 @@
-package com.hwaipy.jatlas.groundtdcserver;
+package com.hydra.test.groundtdcserver;
 
-import com.hwaipy.vi.tdc.TDCDataProcessor;
-import com.hwaipy.vi.tdc.TDCParser;
-import com.hwaipy.vi.tdc.adapters.BufferedOrderTDCDataAdapter;
-import com.hwaipy.vi.tdc.adapters.DeserializingTDCDataAdapter;
-import com.hwaipy.vi.tdc.adapters.GroundTDCDataAdapter;
-import com.hwaipy.vi.tdc.adapters.SerializingTDCDataAdapter;
+import com.hydra.device.tdc.TDCDataProcessor;
+import com.hydra.device.tdc.TDCParser;
+import com.hydra.device.tdc.adapters.BufferedOrderTDCDataAdapter;
+import com.hydra.device.tdc.adapters.DeserializingTDCDataAdapter;
+import com.hydra.device.tdc.adapters.GroundTDCDataAdapter;
+import com.hydra.device.tdc.adapters.SerializingTDCDataAdapter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

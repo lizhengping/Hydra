@@ -1,6 +1,6 @@
-package com.hwaipy.vi.tdc.adapters;
+package com.hydra.device.tdc.adapters;
 
-import com.hwaipy.vi.tdc.TDCDataAdapter;
+import com.hydra.device.tdc.TDCDataAdapter;
 import java.util.ArrayList;
 import java.util.List;
 

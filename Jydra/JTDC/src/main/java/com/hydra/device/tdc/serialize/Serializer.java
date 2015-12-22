@@ -1,4 +1,4 @@
-package com.hwaipy.vi.tdc.serialize;
+package com.hydra.device.tdc.serialize;
 
 import java.nio.ByteBuffer;
 import java.util.List;

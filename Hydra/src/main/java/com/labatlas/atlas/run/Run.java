@@ -15,7 +15,7 @@ public class Run {
 
   public static void main(String[] args) {
     Properties properties = new Properties();
-    File propertiesFile = new File("Atlas.properties");
+    File propertiesFile = new File("Hydra.properties");
     try (FileInputStream propertiesIn = new FileInputStream(propertiesFile)) {
       properties.load(propertiesIn);
     } catch (FileNotFoundException ex) {

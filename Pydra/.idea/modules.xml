@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PyAtlas.iml" filepath="$PROJECT_DIR$/.idea/PyAtlas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Pydra.iml" filepath="$PROJECT_DIR$/.idea/Pydra.iml" />
     </modules>
   </component>
 </project>

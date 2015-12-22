@@ -1,4 +1,4 @@
-package com.hwaipy.vi.tdc;
+package com.hydra.device.tdc;
 
 /**
  *

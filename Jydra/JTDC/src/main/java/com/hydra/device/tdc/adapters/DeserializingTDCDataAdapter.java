@@ -1,7 +1,7 @@
-package com.hwaipy.vi.tdc.adapters;
+package com.hydra.device.tdc.adapters;
 
-import com.hwaipy.vi.tdc.TDCDataAdapter;
-import com.hwaipy.vi.tdc.serialize.Deserializer;
+import com.hydra.device.tdc.TDCDataAdapter;
+import com.hydra.device.tdc.serialize.Deserializer;
 
 /**
  *
