@@ -1,7 +1,7 @@
 __author__ = 'Hwaipy'
 __version__ = 'v1.0.20151212'
 
-from LabAtlas import Session, Message
+from Hydra import Session, Message
 import sys, time, os
 from PyQt5.QtWidgets import QTableWidget, QMainWindow, QAbstractItemView, QTableWidgetItem, QDesktopWidget, \
     QApplication, QHeaderView, QHBoxLayout, QWidget, QTextEdit, QComboBox, QLineEdit, QCheckBox, QAction, QFileDialog

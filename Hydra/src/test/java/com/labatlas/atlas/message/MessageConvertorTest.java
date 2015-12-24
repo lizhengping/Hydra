@@ -1,7 +1,7 @@
 package com.labatlas.atlas.message;
 
-import com.labatlas.atlas.Message;
-import com.labatlas.atlas.MessageConvertor;
+import com.hydra.core.Message;
+import com.hydra.core.MessageConvertor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;

@@ -1,6 +1,6 @@
 __author__ = 'Hwaipy'
 
-from LabAtlas import Session, Message
+from Hydra import Session, Message
 import time
 
 

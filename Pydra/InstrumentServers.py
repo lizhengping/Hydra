@@ -1,6 +1,6 @@
 __author__ = 'Hwaipy'
 
-from LabAtlas import Session
+from Hydra import Session
 
 
 class InstrumentServer:
