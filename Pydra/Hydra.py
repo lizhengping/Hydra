@@ -78,13 +78,13 @@ class Session:
                             response.Result = result
                             self.response(response)
                         except Exception as ex:
-                            response = message.error()
+                            response = message.error('InvokeError')
                             response.ErrorMessage = str(ex)
                             self.response(response)
                         return
                 except AttributeError as ae:
                     pass
-            response = message.error()
+            response = message.error('InvokeError')
             response.ErrorMessage = 'Command {} not found.'.format(command)
             self.response(response)
         elif (type is Message.Type.Response) or (type is Message.Type.Error):
@@ -168,10 +168,11 @@ class Message:
             response.Target = self.From
         return response
 
-    def error(self):
+    def error(self, errorType):
         response = Message()
         response.ResponseID = self.MessageID
         response.Error = self.Request
+        response.ErrorType = errorType
         if self.From:
             response.Target = self.From
         return response
