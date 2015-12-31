@@ -7,3 +7,17 @@ pom.xml.next
 release.properties
 /RemoteFileTele/nbproject/private/
 /RemoteFileTele/build/
+
+# python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+workspace.xml
+
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
