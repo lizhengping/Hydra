@@ -1,12 +1,10 @@
 package com.hwaipy.unifieddeviceinterface.adc.advantech;
 
-import com.hwaipy.unifieddeviceinterface.DeviceException;
-
 /**
  *
  * @author ustc
  */
-public class AdvantechADCException extends DeviceException {
+public class AdvantechADCException extends Exception {
 
     public AdvantechADCException() {
     }
