@@ -1,12 +1,10 @@
 package com.hwaipy.unifieddeviceinterface.adc.advantech;
 
-import com.hwaipy.unifieddeviceinterface.Device;
-
 /**
  *
  * @author ustc
  */
-public class AdvantechADCDevice implements Device {
+public class AdvantechADCDevice{
 
     private final long deviceIndex;
     private final String deviceName;
@@ -43,7 +41,6 @@ public class AdvantechADCDevice implements Device {
         return deviceUnderlying.analogIOReadVoltage(handle, port);
     }
 
-    @Override
     public void open() throws AdvantechADCException {
         if (opened) {
             throw new IllegalStateException();
@@ -53,7 +50,6 @@ public class AdvantechADCDevice implements Device {
         opened = true;
     }
 
-    @Override
     public void close() throws AdvantechADCException {
         if (!opened) {
             throw new IllegalStateException();

@@ -82,7 +82,6 @@ class AdvantechADCDeviceUnderlying {
     }
 
     double analogIOReadVoltage(long handle, int port, short gain) throws AdvantechADCException {
-        System.err.println("gain: "+gain);
         PT_ATConfig.ByReference config = new PT_ATConfig.ByReference();
         config.dasChan = (short) port;
         config.dasGain = gain;
