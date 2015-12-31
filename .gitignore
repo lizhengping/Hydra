@@ -8,16 +8,17 @@ release.properties
 /RemoteFileTele/nbproject/private/
 /RemoteFileTele/build/
 
-# python:
 *.py[cod]
 *.so
 *.egg
 *.egg-info
 dist
 build
-workspace.xml
+.diea
+__pycache_
 
-# Windows:
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+.DS_Store
