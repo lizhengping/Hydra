@@ -14,8 +14,8 @@ release.properties
 *.egg-info
 dist
 build
-#*/.idea/*
-#__pycache_
+.idea
+__pycache_
 
 Thumbs.db
 ehthumbs.db
