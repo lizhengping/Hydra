@@ -14,7 +14,8 @@ release.properties
 *.egg-info
 dist
 build
-.diea
+*/.diea/*
+Pydra/.diea/
 __pycache_
 
 Thumbs.db
