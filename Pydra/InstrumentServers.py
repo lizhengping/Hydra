@@ -46,5 +46,5 @@ if __name__ == '__main__':
             return 'Hydra,TestDevice,1.0.0,2015'
 
 
-    iis = InstrumentServer('InvokableInstrumentServerTest', invokers=TestDevice())
+    iis = InstrumentServer('InvokableInstrumentServerTest', address=('172.16.60.199', 20102), invokers=TestDevice())
     iis.start()

@@ -135,7 +135,6 @@ public class Message {
 
   public Message responseError() {
     Message m = create().put(KEY_ERROR, commandString).put(KEY_RESPONSE_ID, id);
-    System.out.println(m);
     return m;
   }
 
